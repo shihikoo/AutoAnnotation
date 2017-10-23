@@ -353,7 +353,8 @@ CountPatternInPar <- function(myStudies = myStudies
   setParSettings()
   '%dopar%' <- foreach::'%dopar%'
 
-  results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')) %dopar% {
+  results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
+                              , .export=c("ReadLink", "CountPatternOverMatrix", "CountPattern", "")) %dopar% {
     # source('R/AutoAnnotationFunctions.R')
     # require(tools)
     # require(AutoAnnotation)
