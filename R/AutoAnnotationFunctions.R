@@ -341,11 +341,11 @@ CountPatternInPar <- function(myStudies = myStudies
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
 #'  It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 #'  If there is only one column, that column will be used both as name and regular expression.
-#' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
-#' @param linkSearchHeaders A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
-#' @param dictionaryNameHeader The header string of name column in dictionary
-#' @param dictionaryRegexHeader The header string of regular expression column in dictionary
-#' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not
+#' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract')
+#' @param linkSearchHeaders A list of the headers of the columns to links to read and search from. A list of character. Default value is c('PdfRelativePath')
+#' @param dictionaryNameHeader The header string of name column in dictionary. Default value is 'Name'.
+#' @param dictionaryRegexHeader The header string of regular expression column in dictionary. Default value is 'Regex'.
+#' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not. Default value is TRUE.
 #'
 #' @return A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
 #'
@@ -363,7 +363,7 @@ CountTermsInStudies <- function(searchingData = NULL
                                 ,
                                 dictionaryRegexHeader = 'Regex'
                                 ,
-                                ignoreCase = 'T'
+                                ignoreCase = TRUE
                                 ) {
   # loadLibraries()
 
@@ -435,7 +435,7 @@ IdentifyTermsInStudies <- function(searchingData = NULL
                                    ,
                                    dictionaryRegexHeader = 'Regex'
                                    ,
-                                   ignoreCase = 'T') {
+                                   ignoreCase = TRUE) {
 
   results <-
     CountTermsInStudies(searchingData = searchingData
