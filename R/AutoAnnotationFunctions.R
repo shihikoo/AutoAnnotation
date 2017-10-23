@@ -242,22 +242,6 @@ CleanText <- function(text, pdfExtractor = F, newLine = T, dashLine = F, lowerCa
   return(text)
 }
 
-#' CountPattern
-#'
-#' The function count any pattern, regular expression acceptable, in text. The function uses perl
-#'
-#' @param text Character.
-#' @param pattern Character.
-#' @param ignoreCase Boolean.
-#' @return number of pattern found in text
-#'
-CountPattern <- function(text, pattern, ignoreCase = T) {
-  locations <-
-    gregexpr(pattern, text, ignore.case = ignoreCase, perl = T)
-  if (is.null(locations[[1]]) | locations[[1]][1] == -1)
-    return(0)
-  return (length(locations[[1]]))
-}
 
 #' CountPatternOverMatrix
 #'
@@ -275,6 +259,17 @@ CountPattern <- function(text, pattern, ignoreCase = T) {
 #'
 CountPatternOverMatrix <-
   function(text, pattern, margin = margin, ignoreCase = ignoreCase) {
+
+
+    CountPattern <- function(text, pattern, ignoreCase = T) {
+      locations <-
+        gregexpr(pattern, text, ignore.case = ignoreCase, perl = T)
+      if (is.null(locations[[1]]) | locations[[1]][1] == -1)
+        return(0)
+      return (length(locations[[1]]))
+    }
+
+
     return(apply(
       text,
       margin,
@@ -325,7 +320,7 @@ CountPatternInPar <- function(myStudies = myStudies
   '%dopar%' <- foreach::'%dopar%'
 
   results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
-                              , .export=c("ReadLink", "CountPatternOverMatrix", "CountPattern") ) %dopar% {
+                              , .export=c("ReadLink", "CountPatternOverMatrix") ) %dopar% {
 
     options(stringsAsFactors = F)
     myStudy <- myStudies[i, ]
