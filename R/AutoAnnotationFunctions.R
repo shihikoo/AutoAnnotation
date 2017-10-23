@@ -194,13 +194,18 @@ ReadLink <- function(link){
 #'
 #' @return status
 
-ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSoftware = '"pdftotext"'){
+ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSoftware = ''){
  try({
   if(!file.exists(pdfLink)) return('Error: Pdf not found')
 
   txtLink <- sub('.pdf', '.txt', pdfLink)
   if (file.exists(txtLink) && ignoreExistingTextFile == FALSE) return('OK: Text file exists')
 
+  if(convertSoftware == '') {
+  if(Sys.info()['sysname'] == 'Linux') convertSoftware = '"pdftotext"'
+  else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"packrat/pdftotext.exe"'
+  else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
+  }
   com <- paste(convertSoftware, paste('"', pdfLink, '"', sep = ''))
 
   try(
