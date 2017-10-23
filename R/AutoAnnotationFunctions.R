@@ -174,7 +174,7 @@ ReadLink <- function(link){
 
   try(
     {
-      fullText <- ReadFullText(textlink)
+      fullText <- ReadFullText(textLink)
       linkStatus <- 'OK: File is read Successfully'
       return(c(linkStatus, fullText))
     }

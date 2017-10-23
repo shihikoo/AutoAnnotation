@@ -1,2 +1,3 @@
 "Name"	"RegexFileName"	"Regex"
 "Open Field"	""	"[oO]pen[-| ]?[fF]ield[-| ]?|OFT|(OFT)|[oO]pen[-| ]?[fF]eild|[oO]pen[-| ]?[fF]ield[-| ]?[tT]est"
+"EEG"	""	"eeg"
