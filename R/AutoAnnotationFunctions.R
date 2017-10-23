@@ -171,12 +171,14 @@ ReadLink <- function(link){
     }
 
   if(textLink == '') return(c(linkStatus,''))
+
+  try(
   if(!file.exists(textLink))
   {
     linkStatus <- "Error: Text file not found"
     return(c(linkStatus,''))
   }
-
+  )
   try(
     {
       fullText <- ReadFullText(textLink)
@@ -236,16 +238,19 @@ ReadFullText <- function(txtFileName) {
     readChar(fileName, file.info(fileName)$size)
   }
 
+  try(
   if(!file.exists(txtFileName)) return(NULL)
-
+  )
   #Read text from file into fulltext
   fulltext <- sapply(txtFileName , ReadText)
 
   return(CleanText(fulltext))
 }
 
-# Clean up text from pdfExtractor new lines, dashlines, and lower text
+
 #' CleanText
+#'
+#' Clean up text from pdfExtractor new lines, dashlines, and lower text
 #'
 #' @param text text
 #' @param pdfExtractor pdfExtractor
