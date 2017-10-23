@@ -1,7 +1,7 @@
 Package: AutoAnnotation
 Type: Package
 Title: Auto annotator with custom dictionary
-Version: 0.3.0
+Version: 0.4.0
 Author: J Liao
 Maintainer: J Liao <shihikoo@gmail.com>
 Description: Mark the occurence frequency of the annotations within a list of records with multiple fields (including text and pdf links).
