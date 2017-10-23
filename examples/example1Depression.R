@@ -11,7 +11,7 @@ outputFolder <- "output/"
 dir.create(outputFolder, showWarnings = F)
 
 dataFileName <- "full-pdfs-ALL-wDOIpdfLinks-04102017.txt"
-didctionaryName <- 'extra/AnnotationRegex.txt'
+didctionaryName <- 'example/AnnotationDictionary.txt'
 filefolder <- 'S:/TRIALDEV/CAMARADES/Alexandra/For Jing/PDF'
 
 #-------- Read full information from the file ----------
