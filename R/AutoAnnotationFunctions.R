@@ -1,13 +1,5 @@
 # Functions for identifying text appreance frequency or appearences in different combination of fields.
 
-#   http://r-pkgs.had.co.nz/
-#
-#   Build and Reload Package:             'Ctrl + Shift + B'
-#   Check Package:                        'Ctrl + Shift + E'
-#   Test Package:                         'Ctrl + Shift + T'
-#   Create Roxygen documentation in code: 'Ctrl + Shift + Alt + R'
-
-
 #' GetData
 #'
 #' The function will first judge wether the input data is a dataset (matrix, data.frame, list, array) or a link.
@@ -344,7 +336,8 @@ CountPatternInPar <- function(myStudies = myStudies
   '%dopar%' <- foreach::'%dopar%'
 
   results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
-                              , .export=c("ConvertPdftoText", "ReadLink", "CountPatternOverMatrix", "CountPattern") ) %dopar% {
+                              , .export=c("ConvertPdftoText", "ReadLink", "CountPatternOverMatrix", "CountPattern"
+                                          ,"myStudies","linkSearchHeaders", "myDictionary","dictionaryRegexHeader", "dictionaryNameHeader") ) %dopar% {
 
     options(stringsAsFactors = F)
     myStudy <- myStudies[i, ]
@@ -363,7 +356,7 @@ CountPatternInPar <- function(myStudies = myStudies
     return(c(myStudy[,linkStatusHeader], result))
   }
 
-  doParallel::stopCluster(clusters)
+  parallel::stopCluster(clusters)
 
   results <- as.data.frame(t(as.matrix(as.data.frame(results))))
   colnames(results) <- c(linkStatusHeader, myDictionary[, dictionaryNameHeader])
