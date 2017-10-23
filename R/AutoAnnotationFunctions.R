@@ -162,6 +162,7 @@ ValidateDictionary <-
 
 ReadLink <- function(link){
 
+  print(link)
   if(tolower(tools::file_ext(link)) == 'pdf'){
     linkStatus <- ConvertPdftoText(link, ignoreExistingTextFile = FALSE)
     textLink <- ifelse(grepl('OK', linkStatus), gsub('pdf','txt', link), '')
@@ -211,7 +212,7 @@ ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSof
 
   if(convertSoftware == '') {
   if(Sys.info()['sysname'] == 'Linux') convertSoftware = '"pdftotext"'
-  else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"packrat/pdftotext.exe"'
+  else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
   else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
   }
   com <- paste(convertSoftware, paste('"', pdfLink, '"', sep = ''))
@@ -360,11 +361,11 @@ CountPatternInPar <- function(myStudies = myStudies
   '%dopar%' <- foreach::'%dopar%'
 
   results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
-                              , .export=c("ReadLink", "CountPatternOverMatrix", "CountPattern", "ConvertPdftoText")) %dopar% {
+                              , .export=c("ConvertPdftoText", "ReadLink", "CountPatternOverMatrix", "CountPattern")) %dopar% {
 
     options(stringsAsFactors = F)
     myStudy <- myStudies[i, ]
-    print(myStudy)
+
     # Read fulltext. Convert if the link is a pdf link. Return Status and fulltext
     myStudy[, c(linkStatusHeader,linkFullTextHeader)] <-
       as.list(t(sapply(myStudy[, linkSearchHeaders], ReadLink)))
