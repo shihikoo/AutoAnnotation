@@ -22,5 +22,5 @@ CleanText(text, pdfExtractor = F, newLine = T, dashLine = F,
 CleanText
 }
 \description{
-CleanText
+Clean up text from pdfExtractor new lines, dashlines, and lower text
 }

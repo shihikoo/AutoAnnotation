@@ -161,6 +161,7 @@ ValidateDictionary <-
 #' @return  linkstatus and fulltext
 
 ReadLink <- function(link){
+
   if(tolower(tools::file_ext(link)) == 'pdf'){
     linkStatus <- ConvertPdftoText(link, ignoreExistingTextFile = FALSE)
     textLink <- ifelse(grepl('OK', linkStatus), gsub('pdf','txt', link), '')
@@ -359,15 +360,11 @@ CountPatternInPar <- function(myStudies = myStudies
   '%dopar%' <- foreach::'%dopar%'
 
   results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
-                              , .export=c("ReadLink", "CountPatternOverMatrix", "CountPattern", "")) %dopar% {
-    # source('R/AutoAnnotationFunctions.R')
-    # require(tools)
-    # require(AutoAnnotation)
+                              , .export=c("ReadLink", "CountPatternOverMatrix", "CountPattern", "ConvertPdftoText")) %dopar% {
 
     options(stringsAsFactors = F)
-
     myStudy <- myStudies[i, ]
-
+    print(myStudy)
     # Read fulltext. Convert if the link is a pdf link. Return Status and fulltext
     myStudy[, c(linkStatusHeader,linkFullTextHeader)] <-
       as.list(t(sapply(myStudy[, linkSearchHeaders], ReadLink)))
