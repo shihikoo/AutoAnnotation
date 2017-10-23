@@ -40,3 +40,17 @@ print(colSums(annotationOnlyResults))
 outputData <- cbind(myData, annotationResults)
 
 write.table(outputData, paste(outputFolder,  runTimestamp, "DataAnnotated.txt", sep=""), quote = F, sep = "\t")
+
+# # ----- print confusion Matrix --------------
+# cmRandomisation <- confusionMatrix(robRegexFlag$RandomisationRegex,myData$Randomisation, positive = "TRUE")
+# cmBlinding <- confusionMatrix(robRegexFlag$BlindingRegex,myData$Blinding, positive = "TRUE")
+# cmSSC <- confusionMatrix(robRegexFlag$SampleSizeCalculationRegex,myData$SampleSizeCalculation, positive = "TRUE")
+#
+# print(cmRandomisation)
+# print(cmBlinding)
+# print(cmSSC)
+#
+# # -------- write confusion Matrix -----------
+# write(cmRandomisation, file = paste(outputFolder,  runTimestamp, "StatisticsResult.txt", sep=""), append = T)
+# write(cmBlinding$byClass, file = paste(outputFolder,  runTimestamp, "StatisticsResult.txt", sep=""), append = T)
+# write(cmSSC$byClass, file = paste(outputFolder,  runTimestamp, "StatisticsResult.txt", sep=""), append = T)
