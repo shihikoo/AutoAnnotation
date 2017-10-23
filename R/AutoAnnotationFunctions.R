@@ -151,7 +151,23 @@ ReadLink <- function(link){
     return("Error: Fail to convert pdf")
   }
 
-  print(link)
+
+  ReadFullText <- function(txtFileNames) {
+
+    # Read regular expression from file names
+    ReadText <- function(fileName){
+      readChar(fileName, file.info(fileName)$size)
+    }
+
+    try(
+      if(!file.exists(txtFileNames)) return(NULL)
+    )
+    #Read text from file into fulltext
+    fulltext <- sapply(txtFileNames , ReadText)
+
+    return(CleanText(fulltext))
+  }
+
   if(tolower(tools::file_ext(link)) == 'pdf'){
     linkStatus <- ConvertPdftoText(link, ignoreExistingTextFile = FALSE)
     textLink <- ifelse(grepl('OK', linkStatus), gsub('pdf','txt', link), '')
@@ -163,52 +179,21 @@ ReadLink <- function(link){
 
   if(textLink == '') return(c(linkStatus,''))
 
-  try(
-  if(!file.exists(textLink))
-  {
+  try( if(!file.exists(textLink)){
     linkStatus <- "Error: Text file not found"
     return(c(linkStatus,''))
-  }
-  )
-  try(
-    {
+  })
+
+
+  try( {
       fullText <- ReadFullText(textLink)
       linkStatus <- 'OK: File is read Successfully'
       return(c(linkStatus, fullText))
-    }
-  )
+    })
 
   linkStatus <- "Error: Failed to read file"
   return(c(linkStatus,''))
 }
-
-
-#' ReadFullText
-#'
-#' Read full text
-#'
-#' @param txtFileNames list of text file name
-#'
-#' @return a list of full text
-#'
-#' @export
-#'
-ReadFullText <- function(txtFileNames) {
-
-  # Read regular expression from file names
-  ReadText <- function(fileName){
-    readChar(fileName, file.info(fileName)$size)
-  }
-
-  try(
-  if(!file.exists(txtFileName)) return(NULL)
-  )
-  #Read text from file into fulltext
-  fulltext <- sapply(txtFileNames , ReadText)
-
-  return(CleanText(fulltext))
-}
-
 
 #' CleanText
 #'
