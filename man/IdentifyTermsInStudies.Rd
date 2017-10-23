@@ -7,7 +7,8 @@
 IdentifyTermsInStudies(searchingData = NULL, dictionary = NULL,
   textSearchingHeaders = c("Title", "Abstract"),
   linkSearchHeaders = c("PdfRelativePath"), dictionaryNameHeader = "Name",
-  dictionaryRegexHeader = "Regex", ignoreCase = "T")
+  dictionaryRegexHeader = "Regex", ignoreCase = TRUE,
+  ignoreExistingTextFile = TRUE, conversionSoftware = "pdftotext")
 }
 \arguments{
 \item{searchingData}{Either a dataset or a link to the dataset to search from}
@@ -25,10 +26,14 @@ If there is only one column, that column will be used both as name and regular e
 \item{dictionaryRegexHeader}{The header string of regular expression column in dictionary}
 
 \item{ignoreCase}{boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not}
+
+\item{ignoreExistingTextFile}{ignoreExistingTextFile}
+
+\item{conversionSoftware}{Software used to covert pdf to text. Default value is 'pdftotext'}
 }
 \value{
 A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
 }
 \description{
-IdentifyTermsInStudies
+Identify terms in studies
 }

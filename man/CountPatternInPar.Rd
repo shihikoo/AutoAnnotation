@@ -4,11 +4,11 @@
 \alias{CountPatternInPar}
 \title{CountPatternInPar}
 \usage{
-CountPatternInPar(myStudies = myStudies, myDictionary = myDictionary,
-  textSearchingHeaders = textSearchingHeaders,
-  linkSearchHeaders = linkSearchHeaders,
-  dictionaryNameHeader = dictionaryNameHeader,
-  dictionaryRegexHeader = dictionaryRegexHeader, ignoreCase = ignoreCase)
+CountPatternInPar(myStudies = NULL, myDictionary,
+  textSearchingHeaders = c("Title", "Abstract"),
+  linkSearchHeaders = "PdfRelativePath", dictionaryNameHeader = "Name",
+  dictionaryRegexHeader = "Regex", ignoreCase = TRUE,
+  ignoreExistingTextFile = TRUE, conversionSoftware = "pdftotext")
 }
 \arguments{
 \item{myStudies}{myStudies}
@@ -24,6 +24,10 @@ CountPatternInPar(myStudies = myStudies, myDictionary = myDictionary,
 \item{dictionaryRegexHeader}{dictionaryRegexHeader}
 
 \item{ignoreCase}{ignoreCase}
+
+\item{ignoreExistingTextFile}{ignoreExistingTextFile}
+
+\item{conversionSoftware}{Software used to covert pdf to text. Default value is 'pdftotext'}
 }
 \value{
 frequency

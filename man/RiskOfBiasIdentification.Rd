@@ -13,5 +13,5 @@ RiskOfBiasIdentification(searchingData)
 result flags
 }
 \description{
-Identify Risk of Bias in myData$cleanText
+Identify Risk of Bias in input data within columns 'Title', 'Abstract' and 'PdfRelevantPath'
 }

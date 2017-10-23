@@ -7,7 +7,8 @@
 CountTermsInStudies(searchingData = NULL, dictionary = NULL,
   textSearchingHeaders = c("Title", "Abstract"),
   linkSearchHeaders = c("PdfRelativePath"), dictionaryNameHeader = "Name",
-  dictionaryRegexHeader = "Regex", ignoreCase = "T")
+  dictionaryRegexHeader = "Regex", ignoreCase = TRUE,
+  ignoreExistingTextFile = TRUE, conversionSoftware = "pdftotext")
 }
 \arguments{
 \item{searchingData}{Either a dataset or a link to the dataset to search from}
@@ -16,15 +17,19 @@ CountTermsInStudies(searchingData = NULL, dictionary = NULL,
 It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 If there is only one column, that column will be used both as name and regular expression.}
 
-\item{textSearchingHeaders}{A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+\item{textSearchingHeaders}{A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract')}
 
-\item{linkSearchHeaders}{A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+\item{linkSearchHeaders}{A list of the headers of the columns to links to read and search from. A list of character. Default value is c('PdfRelativePath')}
 
-\item{dictionaryNameHeader}{The header string of name column in dictionary}
+\item{dictionaryNameHeader}{The header string of name column in dictionary. Default value is 'Name'.}
 
-\item{dictionaryRegexHeader}{The header string of regular expression column in dictionary}
+\item{dictionaryRegexHeader}{The header string of regular expression column in dictionary. Default value is 'Regex'.}
 
-\item{ignoreCase}{boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not}
+\item{ignoreCase}{boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not. Default value is TRUE.}
+
+\item{ignoreExistingTextFile}{ignoreExistingTextFile}
+
+\item{conversionSoftware}{Software used to covert pdf to text. Default value is 'pdftotext'}
 }
 \value{
 A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.

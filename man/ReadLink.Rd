@@ -4,10 +4,16 @@
 \alias{ReadLink}
 \title{ReadLink}
 \usage{
-ReadLink(link)
+ReadLink(link, ignoreExistingTextFile = FALSE, conversionSoftware = "")
 }
 \arguments{
 \item{link}{read full text from link}
+
+\item{ignoreExistingTextFile}{boolean varible to indicate whether a pdf should be converted
+if there is already text file with its file name.}
+
+\item{conversionSoftware}{indicate the location and name of the software to use to convert pdf to text.
+Default value is pdftotext}
 }
 \value{
 linkstatus and fulltext

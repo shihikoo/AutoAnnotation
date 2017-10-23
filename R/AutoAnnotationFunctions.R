@@ -121,79 +121,102 @@ ValidateDictionary <-
 #' Read Link
 #'
 #' @param link read full text from link
-#'
+#' @param ignoreExistingTextFile boolean varible to indicate whether a pdf should be converted
+#' if there is already text file with its file name.
+#' @param conversionSoftware indicate the location and name of the software to use to convert pdf to text.
+#' Default value is pdftotext
 #' @return  linkstatus and fulltext
 #'
 #' @export
 #'
-ReadLink <- function(link){
+ReadLink <-
+  function(link,
+           ignoreExistingTextFile = FALSE,
+           conversionSoftware = '') {
+    ConvertPdftoText <-
+      function(pdfLink,
+               ignoreExistingTextFile = FALSE,
+               conversionSoftware = '') {
+        try({
+          if (!file.exists(pdfLink))
+            return('Error: Pdf not found')
 
-  ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSoftware = ''){
-    try({
-      if(!file.exists(pdfLink)) return('Error: Pdf not found')
+          txtLink <- sub('.pdf', '.txt', pdfLink)
+          if (file.exists(txtLink) &&
+              ignoreExistingTextFile == FALSE)
+            return('OK: Text file exists')
 
-      txtLink <- sub('.pdf', '.txt', pdfLink)
-      if (file.exists(txtLink) && ignoreExistingTextFile == FALSE) return('OK: Text file exists')
+          if (convertSoftware == '') {
+            if (Sys.info()['sysname'] == 'Linux')
+              convertSoftware = 'pdftotext'
+            else if (Sys.info()['sysname'] == 'Windows')
+              convertSoftware = 'pdftotext'
+            else if (Sys.info()['sysname'] == 'Mac')
+              convertSoftware = 'pdftotext'
+            else
+              convertSoftware = 'pdftotext'
+          }
 
-      if(convertSoftware == '') {
-        if(Sys.info()['sysname'] == 'Linux') convertSoftware = '"pdftotext"'
-        else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
-        else if(Sys.info()['sysname'] == 'Mac') convertSoftware = '"pdftotext"'
-        else convertSoftware = '"pdftotext"'
+          com <-
+            paste(paste('"', convertSoftware, '"', sep = '') ,
+                  paste('"', pdfLink, '"', sep = ''))
+
+          try({
+            system(com, wait = T)
+            return("OK: Pdf Converted")
+          })
+        }, TRUE)
+        return("Error: Fail to convert pdf")
       }
-      com <- paste(convertSoftware, paste('"', pdfLink, '"', sep = ''))
 
-      try(
-        {system(com, wait = T)
-          return("OK: Pdf Converted")}
-      )}, TRUE
-    )
-    return("Error: Fail to convert pdf")
-  }
+    ReadFullText <- function(txtFileNames) {
+      # Read regular expression from file names
+      ReadText <- function(fileName) {
+        readChar(fileName, file.info(fileName)$size)
+      }
 
+      try(if (!file.exists(txtFileNames))
+        return(NULL))
+      #Read text from file into fulltext
+      fulltext <- sapply(txtFileNames , ReadText)
 
-  ReadFullText <- function(txtFileNames) {
-
-    # Read regular expression from file names
-    ReadText <- function(fileName){
-      readChar(fileName, file.info(fileName)$size)
+      return(CleanText(fulltext))
     }
 
-    try(
-      if(!file.exists(txtFileNames)) return(NULL)
-    )
-    #Read text from file into fulltext
-    fulltext <- sapply(txtFileNames , ReadText)
-
-    return(CleanText(fulltext))
-  }
-
-  if(tolower(tools::file_ext(link)) == 'pdf'){
-    linkStatus <- ConvertPdftoText(link, ignoreExistingTextFile = FALSE)
-    textLink <- ifelse(grepl('OK', linkStatus), gsub('pdf','txt', link), '')
-  }
-  else {
-    if(link == "") linkStatus <- 'Error: No file' else linkStatus <- 'Ok: Not pdf'
-    textLink <- link
+    if (tolower(tools::file_ext(link)) == 'pdf') {
+      linkStatus <-
+        ConvertPdftoText(link,
+                         ignoreExistingTextFile = ignoreExistingTextFile
+                         ,
+                         conversionSoftware = conversionSoftware)
+      textLink <-
+        ifelse(grepl('OK', linkStatus), gsub('pdf', 'txt', link), '')
+    }
+    else {
+      if (link == "")
+        linkStatus <- 'Error: No file'
+      else
+        linkStatus <- 'Ok: Not pdf'
+      textLink <- link
     }
 
-  if(textLink == '') return(c(linkStatus,''))
+    if (textLink == '')
+      return(c(linkStatus, ''))
 
-  try( if(!file.exists(textLink)){
-    linkStatus <- "Error: Text file not found"
-    return(c(linkStatus,''))
-  })
+    try(if (!file.exists(textLink)) {
+      linkStatus <- "Error: Text file not found"
+      return(c(linkStatus, ''))
+    })
 
-
-  try( {
+    try({
       fullText <- ReadFullText(textLink)
       linkStatus <- 'OK: File is read Successfully'
       return(c(linkStatus, fullText))
     })
 
-  linkStatus <- "Error: Failed to read file"
-  return(c(linkStatus,''))
-}
+    linkStatus <- "Error: Failed to read file"
+    return(c(linkStatus, ''))
+  }
 
 #' CleanText
 #'
@@ -207,25 +230,30 @@ ReadLink <- function(link){
 #'
 #' @return CleanText
 #'
-CleanText <- function(text, pdfExtractor = F, newLine = T, dashLine = F, lowerCase = F) {
-  if (pdfExtractor == T)
-    text <-
-      gsub("[(][a-zA-Z0-9. ]*PDF Extractor SDK[a-zA-Z0-9 .]*[)]",
-           "",
-           text,
-           perl = T)
+CleanText <-
+  function(text,
+           pdfExtractor = F,
+           newLine = T,
+           dashLine = F,
+           lowerCase = F) {
+    if (pdfExtractor == T)
+      text <-
+        gsub("[(][a-zA-Z0-9. ]*PDF Extractor SDK[a-zA-Z0-9 .]*[)]",
+             "",
+             text,
+             perl = T)
 
-  if (newLine == T)
-    text <- gsub("\r|\n|\f", " ", text, perl = T)
+    if (newLine == T)
+      text <- gsub("\r|\n|\f", " ", text, perl = T)
 
-  if (dashLine == T)
-    text <- gsub("-", "", text, perl = T)
+    if (dashLine == T)
+      text <- gsub("-", "", text, perl = T)
 
-  if (lowerCase == T)
-    text <- tolower(text)
+    if (lowerCase == T)
+      text <- tolower(text)
 
-  return(text)
-}
+    return(text)
+  }
 
 
 #' CountPatternOverMatrix
@@ -243,9 +271,10 @@ CleanText <- function(text, pdfExtractor = F, newLine = T, dashLine = F, lowerCa
 #' @return a list of integers showing the number frequency of the pattern match over columns and over rows
 #'
 CountPatternOverMatrix <-
-  function(text, pattern, margin = margin, ignoreCase = ignoreCase) {
-
-
+  function(text,
+           pattern,
+           margin = margin,
+           ignoreCase = ignoreCase) {
     CountPattern <- function(text, pattern, ignoreCase = T) {
       locations <-
         gregexpr(pattern, text, ignore.case = ignoreCase, perl = T)
@@ -275,22 +304,28 @@ CountPatternOverMatrix <-
 #' @param dictionaryNameHeader dictionaryNameHeader
 #' @param dictionaryRegexHeader dictionaryRegexHeader
 #' @param ignoreCase ignoreCase
+#' @param ignoreExistingTextFile ignoreExistingTextFile
+#' @param conversionSoftware Software used to covert pdf to text. Default value is 'pdftotext'
 #'
 #' @return frequency
 #'
-CountPatternInPar <- function(myStudies = myStudies
+CountPatternInPar <- function(myStudies = NULL
                               ,
-                              myDictionary = myDictionary
+                              myDictionary
                               ,
-                              textSearchingHeaders = textSearchingHeaders
+                              textSearchingHeaders = c('Title', 'Abstract')
                               ,
-                              linkSearchHeaders = linkSearchHeaders
+                              linkSearchHeaders = 'PdfRelativePath'
                               ,
-                              dictionaryNameHeader = dictionaryNameHeader
+                              dictionaryNameHeader = 'Name'
                               ,
-                              dictionaryRegexHeader = dictionaryRegexHeader
+                              dictionaryRegexHeader = 'Regex'
                               ,
-                              ignoreCase = ignoreCase) {
+                              ignoreCase = TRUE
+                              ,
+                              ignoreExistingTextFile = TRUE
+                              ,
+                              conversionSoftware = 'pdftotext') {
   linkStatusHeader <-
     paste0(linkSearchHeaders, "Status")
   linkFullTextHeader <-
@@ -304,30 +339,45 @@ CountPatternInPar <- function(myStudies = myStudies
 
   '%dopar%' <- foreach::'%dopar%'
 
-  results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
-                              , .export=c("ReadLink", "CountPatternOverMatrix") ) %dopar% {
+  results <-
+    foreach::foreach(
+      i = 1:nrow(myStudies),
+      .packages = c('tools')
+      ,
+      .export = c("ReadLink", "CountPatternOverMatrix")
+    ) %dopar% {
+      options(stringsAsFactors = F)
+      myStudy <- myStudies[i,]
 
-    options(stringsAsFactors = F)
-    myStudy <- myStudies[i, ]
+      # Read fulltext. Convert if the link is a pdf link. Return Status and fulltext
+      myStudy[, c(linkStatusHeader, linkFullTextHeader)] <-
+        as.list(t(
+          sapply(
+            myStudy[, linkSearchHeaders],
+            ReadLink,
+            ignoreExistingTextFile = ignoreExistingTextFile
+            ,
+            conversionSoftware = conversionSoftware
+          )
+        ))
 
-    # Read fulltext. Convert if the link is a pdf link. Return Status and fulltext
-    myStudy[, c(linkStatusHeader,linkFullTextHeader)] <-
-      as.list(t(sapply(myStudy[, linkSearchHeaders], ReadLink)))
+      myRegex <- myDictionary[, dictionaryRegexHeader]
+      result <- sapply(
+        myRegex,
+        CountPatternOverMatrix,
+        margin = 1,
+        text = myStudy[,!(names(myStudy) %in% c(linkSearchHeaders, linkStatusHeader))],
+        ignoreCase = ignoreCase
+      )
 
-    myRegex <- myDictionary[, dictionaryRegexHeader]
-    result<- sapply(myRegex,
-           CountPatternOverMatrix,
-           margin = 1,
-           text = myStudy[, !(names(myStudy) %in% c(linkSearchHeaders, linkStatusHeader))],
-           ignoreCase = ignoreCase)
-
-    return(c(myStudy[,linkStatusHeader], result))
-  }
+      return(c(myStudy[, linkStatusHeader], result))
+    }
 
   parallel::stopCluster(cl)
 
   results <- as.data.frame(t(as.matrix(as.data.frame(results))))
-  colnames(results) <- c(linkStatusHeader, myDictionary[, dictionaryNameHeader])
+  colnames(results) <-
+    c(linkStatusHeader, myDictionary[, dictionaryNameHeader])
   rownames(results) <- NULL
 
   return(results)
@@ -346,6 +396,8 @@ CountPatternInPar <- function(myStudies = myStudies
 #' @param dictionaryNameHeader The header string of name column in dictionary. Default value is 'Name'.
 #' @param dictionaryRegexHeader The header string of regular expression column in dictionary. Default value is 'Regex'.
 #' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not. Default value is TRUE.
+#' @param ignoreExistingTextFile ignoreExistingTextFile
+#' @param conversionSoftware Software used to covert pdf to text. Default value is 'pdftotext'
 #'
 #' @return A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
 #'
@@ -364,10 +416,10 @@ CountTermsInStudies <- function(searchingData = NULL
                                 dictionaryRegexHeader = 'Regex'
                                 ,
                                 ignoreCase = TRUE
-                                ) {
-  # loadLibraries()
-
-  # options(stringsAsFactors = F)
+                                ,
+                                ignoreExistingTextFile = TRUE
+                                ,
+                                conversionSoftware = 'pdftotext') {
   #Read in the data.
   myStudies <-
     ExtractColumns(GetData(searchingData),
@@ -384,7 +436,8 @@ CountTermsInStudies <- function(searchingData = NULL
   if (is.null(myDictionary))
     return(NULL)
 
- results <-
+  #Count Pattern in parallel
+  results <-
     # as.data.frame(
     CountPatternInPar(
       myStudies = myStudies
@@ -400,6 +453,10 @@ CountTermsInStudies <- function(searchingData = NULL
       dictionaryRegexHeader = dictionaryRegexHeader
       ,
       ignoreCase = ignoreCase
+      ,
+      ignoreExistingTextFile = ignoreExistingTextFile
+      ,
+      conversionSoftware = conversionSoftware
     )
 
   return(results)
@@ -407,7 +464,7 @@ CountTermsInStudies <- function(searchingData = NULL
 
 #' IdentifyTermsInStudies
 #'
-#' IdentifyTermsInStudies
+#' Identify terms in studies
 #'
 #' @param searchingData Either a dataset or a link to the dataset to search from
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
@@ -418,6 +475,8 @@ CountTermsInStudies <- function(searchingData = NULL
 #' @param dictionaryNameHeader The header string of name column in dictionary
 #' @param dictionaryRegexHeader The header string of regular expression column in dictionary
 #' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not
+#' @param ignoreExistingTextFile ignoreExistingTextFile
+#' @param conversionSoftware Software used to covert pdf to text. Default value is 'pdftotext'
 #'
 #' @return A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
 #'
@@ -435,29 +494,39 @@ IdentifyTermsInStudies <- function(searchingData = NULL
                                    ,
                                    dictionaryRegexHeader = 'Regex'
                                    ,
-                                   ignoreCase = TRUE) {
-
+                                   ignoreCase = TRUE
+                                   ,
+                                   ignoreExistingTextFile = TRUE
+                                   ,
+                                   conversionSoftware = 'pdftotext') {
   results <-
-    CountTermsInStudies(searchingData = searchingData
-                           ,
-                           dictionary = dictionary
-                           ,
-                           textSearchingHeaders = textSearchingHeaders
-                           ,
-                           linkSearchHeaders = linkSearchHeaders
-                           ,
-                           dictionaryNameHeader = dictionaryNameHeader
-                           ,
-                           dictionaryRegexHeader = dictionaryRegexHeader
-                           ,
-                           ignoreCase = ignoreCase)
+    CountTermsInStudies(
+      searchingData = searchingData
+      ,
+      dictionary = dictionary
+      ,
+      textSearchingHeaders = textSearchingHeaders
+      ,
+      linkSearchHeaders = linkSearchHeaders
+      ,
+      dictionaryNameHeader = dictionaryNameHeader
+      ,
+      dictionaryRegexHeader = dictionaryRegexHeader
+      ,
+      ignoreCase = ignoreCase
+      ,
+      ignoreExistingTextFile = ignoreExistingTextFile
+      ,
+      conversionSoftware = conversionSoftware
+    )
 
   return(results != 0)
 }
 
 #' RiskOfBiasIdentification
 #'
-#' Identify Risk of Bias in myData$cleanText
+#' Identify Risk of Bias in input data within columns 'Title', 'Abstract' and 'PdfRelevantPath'
+#'
 #'
 #' @param searchingData data to search from. Either a link to the file or a data frame or a matrix
 #'
