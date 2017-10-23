@@ -1,2 +1,2 @@
-# Automatically Annotate articles with own dictionaries
+# Automatically annotate articles with own dictionaries
 
