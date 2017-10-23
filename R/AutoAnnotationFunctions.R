@@ -352,7 +352,8 @@ CountPatternInPar <- function(myStudies = myStudies
 
   results <- foreach(i = 1:nrow(myStudies)) %dopar% {
     # source('R/AutoAnnotationFunctions.R')
-    library(AutoAnnotation)
+    require(tools)
+    require(AutoAnnotation)
 
     loadLibraries()
     options(stringsAsFactors = F)
