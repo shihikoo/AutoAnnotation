@@ -1,7 +1,8 @@
 #-----load library
-install.packages("githubinstall")
-library(githubinstall)
-githubinstall("AutoAnnotation")
+# install.packages("githubinstall")
+# library(githubinstall)
+# githubinstall("AutoAnnotation")
+library(AutoAnnotation)
 
 #-------- Set up file folders, different for different projects ----------
 runTimestamp <- format(Sys.time(), "%Y%m%d%H%M%S")
@@ -13,7 +14,7 @@ outputFolder <- "output/"
 dir.create(outputFolder, showWarnings = F)
 
 dataFileName <- "full-pdfs-ALL-wDOIpdfLinks-04102017.txt"
-didctionaryName <- 'example/AnnotationDictionary.txt'
+didctionaryName <- 'examples/AnnotationDictionary.txt'
 filefolder <- 'S:/TRIALDEV/CAMARADES/Alexandra/For Jing/PDF'
 
 #-------- Read full information from the file ----------

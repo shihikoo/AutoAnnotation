@@ -21,5 +21,5 @@ If the data frame contains more than one column, then the only first column is u
 a list of integers showing the number frequency of the pattern match over columns and over rows
 }
 \description{
-CountPatternOverMatrix
+Count Pattern Over Matrix
 }

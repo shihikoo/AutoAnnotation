@@ -8,6 +8,9 @@
 #   Create Roxygen documentation in code: 'Ctrl + Shift + Alt + R'
 
 #load libraries
+#' loadLibraries
+#'
+
 loadLibraries <- function()
 {
   library(tools)
@@ -16,6 +19,9 @@ loadLibraries <- function()
 }
 
 #load libraries
+#' setParSettings
+#'
+
 setParSettings <- function()
 {
   #Count the pattern in each studies parallaly
@@ -104,6 +110,16 @@ ExtractColumns <- function(df, columnNames) {
   }
 }
 
+#' ValidateDictionary
+#'
+#' Validate Dictionary
+#'
+#' @param myDictionary  my Dictionary
+#' @param dictionaryNameHeader dictionary Name Header
+#' @param dictionaryRegexHeader dictionary Regex Header
+#'
+#' @return valid myDictionary
+
 ValidateDictionary <-
   function(myDictionary,
            dictionaryNameHeader,
@@ -130,6 +146,14 @@ ValidateDictionary <-
     }
 
   }
+
+#' ReadLink
+#'
+#' Read Link
+#'
+#' @param link
+#'
+#' @return  linkstatus and fulltext
 
 ReadLink <- function(link){
   if(tolower(file_ext(link)) == 'pdf'){
@@ -160,7 +184,16 @@ ReadLink <- function(link){
   return(c(linkStatus,''))
 }
 
-# Convert pdf to text
+#' ConvertPdftoText
+#'
+#'  Convert pdf to text
+#'
+#' @param pdfLink pdfLink
+#' @param ignoreExistingTextFile ignore ExistingTextFile
+#' @param convertSoftware convertSoftware
+#'
+#' @return status
+
 ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSoftware = '"pdftotext"'){
  try({
   if(!file.exists(pdfLink)) return('Error: Pdf not found')
@@ -178,7 +211,14 @@ ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSof
   return("Error: Fail to convert pdf")
 }
 
-# Read full text
+#' ReadFullText
+#'
+#' # Read full text
+#'
+#' @param txtFileName
+#'
+#' @return full text
+
 ReadFullText <- function(txtFileName) {
 
   # Read regular expression from file names
@@ -192,25 +232,19 @@ ReadFullText <- function(txtFileName) {
   fulltext <- sapply(txtFileName , ReadText)
 
   return(CleanText(fulltext))
-
-  # # function to read full text from an array with document name and document size, which used in the function ReadFullText
-  # readinFulltext <- function(inputarray) {
-  #   return (readChar(inputarray[1], inputarray[2]))
-  # }
-  #
-  # # Calculate file size
-  # fulltextsize <- file.info(txtfilename)$size
-  #
-  # #Read text from file into fulltext
-  # fulltext <-
-  #   apply(cbind(txtfilename = txtfilename, fulltextsize = fulltextsize),
-  #         1,
-  #         readinFulltext)
-  #
-  # return(fulltext)
 }
 
 # Clean up text from pdfExtractor new lines, dashlines, and lower text
+#' CleanText
+#'
+#' @param text text
+#' @param pdfExtractor pdfExtractor
+#' @param newLine newLine
+#' @param dashLine dashLine
+#' @param lowerCase lowerCase
+#'
+#' @return CleanText
+
 CleanText <- function(text, pdfExtractor = F, newLine = T, dashLine = F, lowerCase = F) {
   if (pdfExtractor == T)
     text <-
@@ -230,8 +264,6 @@ CleanText <- function(text, pdfExtractor = F, newLine = T, dashLine = F, lowerCa
 
   return(text)
 }
-
-
 
 #' CountPattern
 #'
@@ -253,6 +285,8 @@ CountPattern <- function(text, pattern, ignoreCase = T) {
 
 #' CountPatternOverMatrix
 #'
+#' Count Pattern Over Matrix
+#'
 #' @param fullText  A list, arry or data frame of character vectors where matches are sought, or a list or array of objects which can be coerced by as.character to a character vector. Long vectors are supported.
 #' @param pattern  Character string containing a regular expression to be matched in the given character vector.
 #' Coerced by as.character to a character string if possible.
@@ -272,6 +306,22 @@ CountPatternOverMatrix <-
       ignoreCase = ignoreCase
     ))
   }
+
+#' CountPatternInPar
+#'
+#' Count Pattern In Par
+#'
+#' @param myStudies myStudies
+#' @param myDictionary myDictionary
+#' @param searchingHeaders searchingHeaders
+#' @param textSearchingHeaders textSearchingHeaders
+#' @param linkSearchHeaders linkSearchHeaders
+#' @param dictionaryNameHeader dictionaryNameHeader
+#' @param dictionaryRegexHeader dictionaryRegexHeader
+#' @param ingorneBrokenLinks ingorneBrokenLinks
+#' @param ignoreCase ignoreCase
+#'
+#' @return frequency
 
 CountPatternInPar <- function(myStudies = myStudies
                               ,
@@ -324,6 +374,8 @@ CountPatternInPar <- function(myStudies = myStudies
 }
 
 #' CountTermsInStudies
+#'
+#'CountTermsInStudies
 #'
 #' @param searchingData Either a dataset or a link to the dataset to search from
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
@@ -400,6 +452,8 @@ CountTermsInStudies <- function(searchingData = NULL
 
 #' IdentifyTermsInStudies
 #'
+#' IdentifyTermsInStudies
+#'
 #' @param searchingData Either a dataset or a link to the dataset to search from
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
 #'  It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
@@ -446,7 +500,14 @@ IdentifyTermsInStudies <- function(searchingData = NULL
   return(results != 0)
 }
 
-# Identify Risk of Bias in myData$cleanText
+#' RiskOfBiasIdentification
+#'
+#' # Identify Risk of Bias in myData$cleanText
+#'
+#' @param searchingData
+#'
+#' @return result flags
+
 RiskOfBiasIdentification <- function(searchingData) {
   results <-
     IdentifyTermsInStudies(searchingData = searchingData, dictionary = 'extra/ROBRegularExpression.txt')
