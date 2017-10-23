@@ -5,7 +5,7 @@
 \title{ConvertPdftoText}
 \usage{
 ConvertPdftoText(pdfLink, ignoreExistingTextFile = FALSE,
-  convertSoftware = "\\"pdftotext\\"")
+  convertSoftware = "")
 }
 \arguments{
 \item{pdfLink}{pdfLink}
