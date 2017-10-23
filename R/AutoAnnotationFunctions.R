@@ -351,7 +351,9 @@ CountPatternInPar <- function(myStudies = myStudies
     paste0(linkSearchHeaders, "FullText")
 
   results <- foreach(i = 1:nrow(myStudies)) %dopar% {
-    source('R/AutoAnnotationFunctions.R')
+    # source('R/AutoAnnotationFunctions.R')
+    library(AutoAnnotation)
+
     loadLibraries()
     options(stringsAsFactors = F)
 

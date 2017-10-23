@@ -4,3 +4,4 @@ packrat/src/
 .Rhistory
 extra
 output
+.RData
