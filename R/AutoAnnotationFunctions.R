@@ -339,7 +339,7 @@ CountPatternInPar <- function(myStudies = myStudies
     return(c(myStudy[,linkStatusHeader], result))
   }
 
-  parallel::stopCluster(clusters)
+  parallel::stopCluster(cl)
 
   results <- as.data.frame(t(as.matrix(as.data.frame(results))))
   colnames(results) <- c(linkStatusHeader, myDictionary[, dictionaryNameHeader])
