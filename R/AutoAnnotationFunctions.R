@@ -325,8 +325,7 @@ CountPatternInPar <- function(myStudies = myStudies
   '%dopar%' <- foreach::'%dopar%'
 
   results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
-                              , .export=c("ConvertPdftoText", "ReadLink", "CountPatternOverMatrix", "CountPattern"
-                                          ,"myStudies","linkSearchHeaders", "myDictionary","dictionaryRegexHeader", "dictionaryNameHeader") ) %dopar% {
+                              , .export=c("ReadLink", "CountPatternOverMatrix", "CountPattern") ) %dopar% {
 
     options(stringsAsFactors = F)
     myStudy <- myStudies[i, ]
