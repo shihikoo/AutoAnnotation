@@ -7,11 +7,11 @@
 RiskOfBiasIdentification(searchingData)
 }
 \arguments{
-\item{searchingData}{}
+\item{searchingData}{data to search from. Either a link to the file or a data frame or a matrix}
 }
 \value{
 result flags
 }
 \description{
-# Identify Risk of Bias in myData$cleanText
+Identify Risk of Bias in myData$cleanText
 }

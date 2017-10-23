@@ -7,7 +7,7 @@
 GetData(myData)
 }
 \arguments{
-\item{data}{Either a dataset, or a link to the dataset}
+\item{myData}{Either a dataset, or a link to the dataset}
 }
 \value{
 Data in the format of data frame or NULL for anything illegal

@@ -7,11 +7,11 @@
 ReadFullText(txtFileName)
 }
 \arguments{
-\item{txtFileName}{}
+\item{txtFileName}{text file name}
 }
 \value{
 full text
 }
 \description{
-# Read full text
+Read full text
 }

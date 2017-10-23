@@ -2,10 +2,13 @@
 % Please edit documentation in R/AutoAnnotationFunctions.R
 \name{setParSettings}
 \alias{setParSettings}
-\title{setParSettings}
+\title{loadLibraries}
 \usage{
 setParSettings()
 }
 \description{
 setParSettings
+}
+\details{
+set parallel Settings
 }

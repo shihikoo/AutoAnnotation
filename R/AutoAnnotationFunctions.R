@@ -11,24 +11,30 @@
 #' loadLibraries
 #'
 
-loadLibraries <- function()
-{
-  library(tools)
-  library(foreach)
-  library(doParallel)
-}
+# library(tools)
+# library(foreach)
+# library(doParallel)
 
-#load libraries
+#
+# loadLibraries <- function()
+# {
+#   library(tools)
+#   library(foreach)
+#   library(doParallel)
+# }
+
 #' setParSettings
+#'
+#' set parallel Settings
 #'
 
 setParSettings <- function()
 {
   #Count the pattern in each studies parallaly
-  ncores <- detectCores(all.tests = FALSE, logical = TRUE)
+  ncores <- parallel::detectCores(all.tests = FALSE, logical = TRUE)
   cl <-
-    makeCluster(round(ncores) / 2, outfile = "") #determines how many parallel processes are used for the pdf downloading
-  registerDoParallel(cl)
+    parallel::makeCluster(round(ncores) / 2, outfile = "") #determines how many parallel processes are used for the pdf downloading
+  doParallel::registerDoParallel(cl)
 }
 
 #' GetData
@@ -37,7 +43,7 @@ setParSettings <- function()
 #' For a dataset, it converts the input data to a data.frame.
 #' For a link, it checks the type of the file and read accordingly. Acceptable extensions include 'txt', 'tsv', 'csv'
 #'
-#' @param data  Either a dataset, or a link to the dataset
+#' @param myData  Either a dataset, or a link to the dataset
 #'
 #' @return Data in the format of data frame or NULL for anything illegal
 #' @export
@@ -50,13 +56,12 @@ GetData <- function(myData) {
         class(myData) == 'list' | class(myData) == 'array') {
       df = as.data.frame(myData)
     } else if (class(myData) == 'character') {
-      require(tools)
-      fileExtension <- file_ext(myData)
+      fileExtension <- tools::file_ext(myData)
       if (fileExtension == 'txt' |
           fileExtension == 'tsv')
-        df <- read.delim(myData, stringsAsFactors = F)
+        df <- utils::read.delim(myData, stringsAsFactors = F)
       else if (fileExtension == 'csv')
-        df <- read.csv(myData, stringsAsFactors = F)
+        df <- utils::read.csv(myData, stringsAsFactors = F)
       # else if(fileExtension == 'xlsx' | fileExtension == 'xls')
       #   {
       #   df <- read.xlsx(myData, 1)
@@ -151,12 +156,12 @@ ValidateDictionary <-
 #'
 #' Read Link
 #'
-#' @param link
+#' @param link link to read from
 #'
 #' @return  linkstatus and fulltext
 
 ReadLink <- function(link){
-  if(tolower(file_ext(link)) == 'pdf'){
+  if(tolower(tools::file_ext(link)) == 'pdf'){
     linkStatus <- ConvertPdftoText(link, ignoreExistingTextFile = FALSE)
     textLink <- ifelse(grepl('OK', linkStatus), gsub('pdf','txt', link), '')
   }
@@ -218,9 +223,9 @@ ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSof
 
 #' ReadFullText
 #'
-#' # Read full text
+#' Read full text
 #'
-#' @param txtFileName
+#' @param txtFileName text file name
 #'
 #' @return full text
 
@@ -292,12 +297,13 @@ CountPattern <- function(text, pattern, ignoreCase = T) {
 #'
 #' Count Pattern Over Matrix
 #'
-#' @param fullText  A list, arry or data frame of character vectors where matches are sought, or a list or array of objects which can be coerced by as.character to a character vector. Long vectors are supported.
+#' @param text  A list, arry or data frame of character vectors where matches are sought, or a list or array of objects which can be coerced by as.character to a character vector. Long vectors are supported.
 #' @param pattern  Character string containing a regular expression to be matched in the given character vector.
 #' Coerced by as.character to a character string if possible.
 #' If a character vector of length 2 or more is supplied, the first element is used with a warning. Missing values are allowed.
 #' If the data frame contains more than one column, then the only first column is used.
 #' @param ignoreCase Boolean
+#' @param margin a vector giving the subscripts which the CountPattern function will be applied over. E.g., for a matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns. Where X has named dimnames, it can be a character vector selecting dimension names.
 #'
 #' @return a list of integers showing the number frequency of the pattern match over columns and over rows
 #'
@@ -318,12 +324,10 @@ CountPatternOverMatrix <-
 #'
 #' @param myStudies myStudies
 #' @param myDictionary myDictionary
-#' @param searchingHeaders searchingHeaders
 #' @param textSearchingHeaders textSearchingHeaders
 #' @param linkSearchHeaders linkSearchHeaders
 #' @param dictionaryNameHeader dictionaryNameHeader
 #' @param dictionaryRegexHeader dictionaryRegexHeader
-#' @param ingorneBrokenLinks ingorneBrokenLinks
 #' @param ignoreCase ignoreCase
 #'
 #' @return frequency
@@ -331,8 +335,6 @@ CountPatternOverMatrix <-
 CountPatternInPar <- function(myStudies = myStudies
                               ,
                               myDictionary = myDictionary
-                              ,
-                              searchingHeaders = searchingHeaders
                               ,
                               textSearchingHeaders = textSearchingHeaders
                               ,
@@ -342,20 +344,20 @@ CountPatternInPar <- function(myStudies = myStudies
                               ,
                               dictionaryRegexHeader = dictionaryRegexHeader
                               ,
-                              ingorneBrokenLinks = ingorneBrokenLinks
-                              ,
                               ignoreCase = ignoreCase) {
   linkStatusHeader <-
     paste0(linkSearchHeaders, "Status")
   linkFullTextHeader <-
     paste0(linkSearchHeaders, "FullText")
 
-  results <- foreach(i = 1:nrow(myStudies)) %dopar% {
-    # source('R/AutoAnnotationFunctions.R')
-    require(tools)
-    require(AutoAnnotation)
+  setParSettings()
+  '%dopar%' <- foreach::'%dopar%'
 
-    loadLibraries()
+  results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools','AutoAnnotation')) %dopar% {
+    # source('R/AutoAnnotationFunctions.R')
+    # require(tools)
+    # require(AutoAnnotation)
+
     options(stringsAsFactors = F)
 
     myStudy <- myStudies[i, ]
@@ -389,13 +391,11 @@ CountPatternInPar <- function(myStudies = myStudies
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
 #'  It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 #'  If there is only one column, that column will be used both as name and regular expression.
-#'
 #' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
-#' @param pdfLinkSearchHeaders A list of the headers of the columns to convert, read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
-#' @param textLinkSearchHeaders A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
-#'
+#' @param linkSearchHeaders A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
 #' @param dictionaryNameHeader The header string of name column in dictionary
 #' @param dictionaryRegexHeader The header string of regular expression column in dictionary
+#' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not
 #'
 #' @return A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
 #' @export
@@ -403,8 +403,6 @@ CountPatternInPar <- function(myStudies = myStudies
 CountTermsInStudies <- function(searchingData = NULL
                                 ,
                                 dictionary = NULL
-                                ,
-                                searchingHeaders = c('Title', 'Abstract')
                                 ,
                                 textSearchingHeaders = c('Title', 'Abstract')
                                 ,
@@ -416,8 +414,8 @@ CountTermsInStudies <- function(searchingData = NULL
                                 ,
                                 ignoreCase = 'T'
                                 ) {
-  loadLibraries()
-  setParSettings()
+  # loadLibraries()
+
   # options(stringsAsFactors = F)
   #Read in the data.
   myStudies <-
@@ -442,8 +440,6 @@ CountTermsInStudies <- function(searchingData = NULL
       ,
       myDictionary = myDictionary
       ,
-      searchingHeaders = searchingHeaders
-      ,
       textSearchingHeaders = textSearchingHeaders
       ,
       linkSearchHeaders = linkSearchHeaders
@@ -466,9 +462,11 @@ CountTermsInStudies <- function(searchingData = NULL
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
 #'  It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 #'  If there is only one column, that column will be used both as name and regular expression.
-#' @param searchingHeaders A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
+#' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
+#' @param linkSearchHeaders A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
 #' @param dictionaryNameHeader The header string of name column in dictionary
 #' @param dictionaryRegexHeader The header string of regular expression column in dictionary
+#' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not
 #'
 #' @return A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
 #' @export
@@ -477,23 +475,20 @@ IdentifyTermsInStudies <- function(searchingData = NULL
                                    ,
                                    dictionary = NULL
                                    ,
-                                   searchingHeaders = c('Title', 'Abstract')
-                                   ,
                                    textSearchingHeaders = c('Title', 'Abstract')
                                    ,
-                                   pdfLinkSearchHeaders = c('')
-                                   ,
-                                   textLinkSearchHeaders = c('')
+                                   linkSearchHeaders = c('PdfRelativePath')
                                    ,
                                    dictionaryNameHeader = 'Name'
                                    ,
-                                   dictionaryRegexHeader = 'Regex') {
+                                   dictionaryRegexHeader = 'Regex'
+                                   ,
+                                   ignoreCase = 'T') {
+
   results <-
     CountTermsInStudies(searchingData = searchingData
                            ,
                            dictionary = dictionary
-                           ,
-                           searchingHeaders = searchingHeaders
                            ,
                            textSearchingHeaders = textSearchingHeaders
                            ,
@@ -510,9 +505,9 @@ IdentifyTermsInStudies <- function(searchingData = NULL
 
 #' RiskOfBiasIdentification
 #'
-#' # Identify Risk of Bias in myData$cleanText
+#' Identify Risk of Bias in myData$cleanText
 #'
-#' @param searchingData
+#' @param searchingData data to search from. Either a link to the file or a data frame or a matrix
 #'
 #' @return result flags
 

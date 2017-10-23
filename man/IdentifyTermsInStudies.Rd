@@ -5,10 +5,9 @@
 \title{IdentifyTermsInStudies}
 \usage{
 IdentifyTermsInStudies(searchingData = NULL, dictionary = NULL,
-  searchingHeaders = c("Title", "Abstract"),
   textSearchingHeaders = c("Title", "Abstract"),
-  pdfLinkSearchHeaders = c(""), textLinkSearchHeaders = c(""),
-  dictionaryNameHeader = "Name", dictionaryRegexHeader = "Regex")
+  linkSearchHeaders = c("PdfRelativePath"), dictionaryNameHeader = "Name",
+  dictionaryRegexHeader = "Regex", ignoreCase = "T")
 }
 \arguments{
 \item{searchingData}{Either a dataset or a link to the dataset to search from}
@@ -17,11 +16,15 @@ IdentifyTermsInStudies(searchingData = NULL, dictionary = NULL,
 It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 If there is only one column, that column will be used both as name and regular expression.}
 
-\item{searchingHeaders}{A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+\item{textSearchingHeaders}{A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+
+\item{linkSearchHeaders}{A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
 
 \item{dictionaryNameHeader}{The header string of name column in dictionary}
 
 \item{dictionaryRegexHeader}{The header string of regular expression column in dictionary}
+
+\item{ignoreCase}{boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not}
 }
 \value{
 A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.

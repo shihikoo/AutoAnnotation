@@ -5,19 +5,15 @@
 \title{CountPatternInPar}
 \usage{
 CountPatternInPar(myStudies = myStudies, myDictionary = myDictionary,
-  searchingHeaders = searchingHeaders,
   textSearchingHeaders = textSearchingHeaders,
   linkSearchHeaders = linkSearchHeaders,
   dictionaryNameHeader = dictionaryNameHeader,
-  dictionaryRegexHeader = dictionaryRegexHeader,
-  ingorneBrokenLinks = ingorneBrokenLinks, ignoreCase = ignoreCase)
+  dictionaryRegexHeader = dictionaryRegexHeader, ignoreCase = ignoreCase)
 }
 \arguments{
 \item{myStudies}{myStudies}
 
 \item{myDictionary}{myDictionary}
-
-\item{searchingHeaders}{searchingHeaders}
 
 \item{textSearchingHeaders}{textSearchingHeaders}
 
@@ -26,8 +22,6 @@ CountPatternInPar(myStudies = myStudies, myDictionary = myDictionary,
 \item{dictionaryNameHeader}{dictionaryNameHeader}
 
 \item{dictionaryRegexHeader}{dictionaryRegexHeader}
-
-\item{ingorneBrokenLinks}{ingorneBrokenLinks}
 
 \item{ignoreCase}{ignoreCase}
 }

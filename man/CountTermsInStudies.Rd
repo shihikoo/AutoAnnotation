@@ -5,7 +5,6 @@
 \title{CountTermsInStudies}
 \usage{
 CountTermsInStudies(searchingData = NULL, dictionary = NULL,
-  searchingHeaders = c("Title", "Abstract"),
   textSearchingHeaders = c("Title", "Abstract"),
   linkSearchHeaders = c("PdfRelativePath"), dictionaryNameHeader = "Name",
   dictionaryRegexHeader = "Regex", ignoreCase = "T")
@@ -19,13 +18,13 @@ If there is only one column, that column will be used both as name and regular e
 
 \item{textSearchingHeaders}{A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
 
+\item{linkSearchHeaders}{A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+
 \item{dictionaryNameHeader}{The header string of name column in dictionary}
 
 \item{dictionaryRegexHeader}{The header string of regular expression column in dictionary}
 
-\item{pdfLinkSearchHeaders}{A list of the headers of the columns to convert, read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
-
-\item{textLinkSearchHeaders}{A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+\item{ignoreCase}{boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not}
 }
 \value{
 A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.

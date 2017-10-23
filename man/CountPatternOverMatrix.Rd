@@ -8,14 +8,16 @@ CountPatternOverMatrix(text, pattern, margin = margin,
   ignoreCase = ignoreCase)
 }
 \arguments{
+\item{text}{A list, arry or data frame of character vectors where matches are sought, or a list or array of objects which can be coerced by as.character to a character vector. Long vectors are supported.}
+
 \item{pattern}{Character string containing a regular expression to be matched in the given character vector.
 Coerced by as.character to a character string if possible.
 If a character vector of length 2 or more is supplied, the first element is used with a warning. Missing values are allowed.
 If the data frame contains more than one column, then the only first column is used.}
 
-\item{ignoreCase}{Boolean}
+\item{margin}{a vector giving the subscripts which the CountPattern function will be applied over. E.g., for a matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns. Where X has named dimnames, it can be a character vector selecting dimension names.}
 
-\item{fullText}{A list, arry or data frame of character vectors where matches are sought, or a list or array of objects which can be coerced by as.character to a character vector. Long vectors are supported.}
+\item{ignoreCase}{Boolean}
 }
 \value{
 a list of integers showing the number frequency of the pattern match over columns and over rows

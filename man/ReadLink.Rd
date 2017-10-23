@@ -7,7 +7,7 @@
 ReadLink(link)
 }
 \arguments{
-\item{link}{}
+\item{link}{link to read from}
 }
 \value{
 linkstatus and fulltext
