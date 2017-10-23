@@ -4,13 +4,13 @@
 \alias{ReadFullText}
 \title{ReadFullText}
 \usage{
-ReadFullText(txtFileName)
+ReadFullText(txtFileNames)
 }
 \arguments{
-\item{txtFileName}{text file name}
+\item{txtFileNames}{list of text file name}
 }
 \value{
-full text
+a list of full text
 }
 \description{
 Read full text

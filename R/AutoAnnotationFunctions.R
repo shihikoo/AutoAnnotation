@@ -7,35 +7,6 @@
 #   Test Package:                         'Ctrl + Shift + T'
 #   Create Roxygen documentation in code: 'Ctrl + Shift + Alt + R'
 
-#load libraries
-#' loadLibraries
-#'
-
-# library(tools)
-# library(foreach)
-# library(doParallel)
-
-#
-# loadLibraries <- function()
-# {
-#   library(tools)
-#   library(foreach)
-#   library(doParallel)
-# }
-
-#' setParSettings
-#'
-#' set parallel Settings
-#'
-
-setParSettings <- function()
-{
-  #Count the pattern in each studies parallaly
-  ncores <- parallel::detectCores(all.tests = FALSE, logical = TRUE)
-  cl <-
-    parallel::makeCluster(round(ncores) / 2, outfile = "") #determines how many parallel processes are used for the pdf downloading
-  doParallel::registerDoParallel(cl)
-}
 
 #' GetData
 #'
@@ -46,9 +17,9 @@ setParSettings <- function()
 #' @param myData  Either a dataset, or a link to the dataset
 #'
 #' @return Data in the format of data frame or NULL for anything illegal
+#'
 #' @export
 #'
-
 GetData <- function(myData) {
   tryCatch({
     if (class(myData) == 'matrix' |
@@ -99,6 +70,7 @@ GetData <- function(myData) {
 #' @param columnNames a list of character object
 #'
 #' @return a data frame with column names matching columnNames. If not mathing is found, NULL is returned.
+#'
 #' @export
 #'
 ExtractColumns <- function(df, columnNames) {
@@ -124,7 +96,7 @@ ExtractColumns <- function(df, columnNames) {
 #' @param dictionaryRegexHeader dictionary Regex Header
 #'
 #' @return valid myDictionary
-
+#'
 ValidateDictionary <-
   function(myDictionary,
            dictionaryNameHeader,
@@ -156,10 +128,12 @@ ValidateDictionary <-
 #'
 #' Read Link
 #'
-#' @param link link to read from
+#' @param link read full text from link
 #'
 #' @return  linkstatus and fulltext
-
+#'
+#' @export
+#'
 ReadLink <- function(link){
 
   print(link)
@@ -202,7 +176,9 @@ ReadLink <- function(link){
 #' @param convertSoftware convertSoftware
 #'
 #' @return status
-
+#'
+#' @export
+#'
 ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSoftware = ''){
  try({
   if(!file.exists(pdfLink)) return('Error: Pdf not found')
@@ -213,7 +189,8 @@ ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSof
   if(convertSoftware == '') {
   if(Sys.info()['sysname'] == 'Linux') convertSoftware = '"pdftotext"'
   else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
-  else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
+  else if(Sys.info()['sysname'] == 'Mac') convertSoftware = '"pdftotext"'
+  else convertSoftware = '"pdftotext"'
   }
   com <- paste(convertSoftware, paste('"', pdfLink, '"', sep = ''))
 
@@ -229,11 +206,13 @@ ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSof
 #'
 #' Read full text
 #'
-#' @param txtFileName text file name
+#' @param txtFileNames list of text file name
 #'
-#' @return full text
-
-ReadFullText <- function(txtFileName) {
+#' @return a list of full text
+#'
+#' @export
+#'
+ReadFullText <- function(txtFileNames) {
 
   # Read regular expression from file names
   ReadText <- function(fileName){
@@ -244,7 +223,7 @@ ReadFullText <- function(txtFileName) {
   if(!file.exists(txtFileName)) return(NULL)
   )
   #Read text from file into fulltext
-  fulltext <- sapply(txtFileName , ReadText)
+  fulltext <- sapply(txtFileNames , ReadText)
 
   return(CleanText(fulltext))
 }
@@ -261,7 +240,7 @@ ReadFullText <- function(txtFileName) {
 #' @param lowerCase lowerCase
 #'
 #' @return CleanText
-
+#'
 CleanText <- function(text, pdfExtractor = F, newLine = T, dashLine = F, lowerCase = F) {
   if (pdfExtractor == T)
     text <-
@@ -291,7 +270,6 @@ CleanText <- function(text, pdfExtractor = F, newLine = T, dashLine = F, lowerCa
 #' @param ignoreCase Boolean.
 #' @return number of pattern found in text
 #'
-
 CountPattern <- function(text, pattern, ignoreCase = T) {
   locations <-
     gregexpr(pattern, text, ignore.case = ignoreCase, perl = T)
@@ -338,7 +316,7 @@ CountPatternOverMatrix <-
 #' @param ignoreCase ignoreCase
 #'
 #' @return frequency
-
+#'
 CountPatternInPar <- function(myStudies = myStudies
                               ,
                               myDictionary = myDictionary
@@ -357,11 +335,16 @@ CountPatternInPar <- function(myStudies = myStudies
   linkFullTextHeader <-
     paste0(linkSearchHeaders, "FullText")
 
-  setParSettings()
+  #Count the pattern in each studies parallaly
+  ncores <- parallel::detectCores(all.tests = FALSE, logical = TRUE)
+  cl <-
+    parallel::makeCluster(round(ncores) / 2, outfile = "") #determines how many parallel processes are used for the pdf downloading
+  doParallel::registerDoParallel(cl)
+
   '%dopar%' <- foreach::'%dopar%'
 
   results <- foreach::foreach(i = 1:nrow(myStudies), .packages = c('tools')
-                              , .export=c("ConvertPdftoText", "ReadLink", "CountPatternOverMatrix", "CountPattern")) %dopar% {
+                              , .export=c("ConvertPdftoText", "ReadLink", "CountPatternOverMatrix", "CountPattern") ) %dopar% {
 
     options(stringsAsFactors = F)
     myStudy <- myStudies[i, ]
@@ -379,6 +362,8 @@ CountPatternInPar <- function(myStudies = myStudies
 
     return(c(myStudy[,linkStatusHeader], result))
   }
+
+  doParallel::stopCluster(clusters)
 
   results <- as.data.frame(t(as.matrix(as.data.frame(results))))
   colnames(results) <- c(linkStatusHeader, myDictionary[, dictionaryNameHeader])
@@ -402,6 +387,7 @@ CountPatternInPar <- function(myStudies = myStudies
 #' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not
 #'
 #' @return A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
+#'
 #' @export
 #'
 CountTermsInStudies <- function(searchingData = NULL
@@ -473,6 +459,7 @@ CountTermsInStudies <- function(searchingData = NULL
 #' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not
 #'
 #' @return A data frame with result of the dictionary search. One column for each term in the dictionary, with the name of the term as header.
+#'
 #' @export
 #'
 IdentifyTermsInStudies <- function(searchingData = NULL
@@ -514,7 +501,9 @@ IdentifyTermsInStudies <- function(searchingData = NULL
 #' @param searchingData data to search from. Either a link to the file or a data frame or a matrix
 #'
 #' @return result flags
-
+#'
+#' @export
+#'
 RiskOfBiasIdentification <- function(searchingData) {
   results <-
     IdentifyTermsInStudies(searchingData = searchingData, dictionary = 'extra/ROBRegularExpression.txt')
