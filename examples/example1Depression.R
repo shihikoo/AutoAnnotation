@@ -1,5 +1,7 @@
-# #-----load library
-# library(caret)
+#-----load library
+install.packages("githubinstall")
+library(githubinstall)
+githubinstall("AutoAnnotation")
 
 #-------- Set up file folders, different for different projects ----------
 runTimestamp <- format(Sys.time(), "%Y%m%d%H%M%S")
