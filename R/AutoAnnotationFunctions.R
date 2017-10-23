@@ -128,6 +128,29 @@ ValidateDictionary <-
 #'
 ReadLink <- function(link){
 
+  ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSoftware = ''){
+    try({
+      if(!file.exists(pdfLink)) return('Error: Pdf not found')
+
+      txtLink <- sub('.pdf', '.txt', pdfLink)
+      if (file.exists(txtLink) && ignoreExistingTextFile == FALSE) return('OK: Text file exists')
+
+      if(convertSoftware == '') {
+        if(Sys.info()['sysname'] == 'Linux') convertSoftware = '"pdftotext"'
+        else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
+        else if(Sys.info()['sysname'] == 'Mac') convertSoftware = '"pdftotext"'
+        else convertSoftware = '"pdftotext"'
+      }
+      com <- paste(convertSoftware, paste('"', pdfLink, '"', sep = ''))
+
+      try(
+        {system(com, wait = T)
+          return("OK: Pdf Converted")}
+      )}, TRUE
+    )
+    return("Error: Fail to convert pdf")
+  }
+
   print(link)
   if(tolower(tools::file_ext(link)) == 'pdf'){
     linkStatus <- ConvertPdftoText(link, ignoreExistingTextFile = FALSE)
@@ -159,40 +182,6 @@ ReadLink <- function(link){
   return(c(linkStatus,''))
 }
 
-#' ConvertPdftoText
-#'
-#'  Convert pdf to text
-#'
-#' @param pdfLink pdfLink
-#' @param ignoreExistingTextFile ignore ExistingTextFile
-#' @param convertSoftware convertSoftware
-#'
-#' @return status
-#'
-#' @export
-#'
-ConvertPdftoText <- function(pdfLink, ignoreExistingTextFile = FALSE, convertSoftware = ''){
- try({
-  if(!file.exists(pdfLink)) return('Error: Pdf not found')
-
-  txtLink <- sub('.pdf', '.txt', pdfLink)
-  if (file.exists(txtLink) && ignoreExistingTextFile == FALSE) return('OK: Text file exists')
-
-  if(convertSoftware == '') {
-  if(Sys.info()['sysname'] == 'Linux') convertSoftware = '"pdftotext"'
-  else if(Sys.info()['sysname'] == 'Windows') convertSoftware = '"pdftotext"'
-  else if(Sys.info()['sysname'] == 'Mac') convertSoftware = '"pdftotext"'
-  else convertSoftware = '"pdftotext"'
-  }
-  com <- paste(convertSoftware, paste('"', pdfLink, '"', sep = ''))
-
-  try(
-    {system(com, wait = T)
-      return("OK: Pdf Converted")}
-  )}, TRUE
- )
-  return("Error: Fail to convert pdf")
-}
 
 #' ReadFullText
 #'

@@ -8,9 +8,17 @@ ReadLink(link)
 }
 \arguments{
 \item{link}{read full text from link}
+
+\item{pdfLink}{pdfLink}
+
+\item{ignoreExistingTextFile}{ignore ExistingTextFile}
+
+\item{convertSoftware}{convertSoftware}
 }
 \value{
 linkstatus and fulltext
+
+status
 }
 \description{
 Read Link
