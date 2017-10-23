@@ -1,2 +1,5 @@
-# Automatically annotate articles with own dictionaries
+# Automatically annotate articles with custom dictionary
+
+library(devtools)
+install_github("shihikoo/AutoAnnotation")
 
