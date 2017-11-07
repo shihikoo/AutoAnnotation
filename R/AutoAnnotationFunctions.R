@@ -146,19 +146,19 @@ ReadLink <-
               ignoreExistingTextFile == FALSE)
             return('OK: Text file exists')
 
-          if (convertSoftware == '') {
+          if (conversionSoftware == '') {
             if (Sys.info()['sysname'] == 'Linux')
-              convertSoftware = 'pdftotext'
+              conversionSoftware = 'pdftotext'
             else if (Sys.info()['sysname'] == 'Windows')
-              convertSoftware = 'pdftotext'
+              conversionSoftware = 'pdftotext'
             else if (Sys.info()['sysname'] == 'Mac')
-              convertSoftware = 'pdftotext'
+              conversionSoftware = 'pdftotext'
             else
-              convertSoftware = 'pdftotext'
+              conversionSoftware = 'pdftotext'
           }
 
           com <-
-            paste(paste('"', convertSoftware, '"', sep = '') ,
+            paste(paste('"', conversionSoftware, '"', sep = '') ,
                   paste('"', pdfLink, '"', sep = ''))
 
           try({
