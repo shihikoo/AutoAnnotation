@@ -183,6 +183,32 @@ ReadLink <-
       return(CleanText(fulltext))
     }
 
+    CleanText <-
+      function(text,
+               pdfExtractor = F,
+               newLine = T,
+               dashLine = F,
+               lowerCase = F) {
+        if (pdfExtractor == T)
+          text <-
+            gsub("[(][a-zA-Z0-9. ]*PDF Extractor SDK[a-zA-Z0-9 .]*[)]",
+                 "",
+                 text,
+                 perl = T)
+
+        if (newLine == T)
+          text <- gsub("\r|\n|\f", " ", text, perl = T)
+
+        if (dashLine == T)
+          text <- gsub("-", "", text, perl = T)
+
+        if (lowerCase == T)
+          text <- tolower(text)
+
+        return(text)
+      }
+
+
     if (tolower(tools::file_ext(link)) == 'pdf') {
       linkStatus <-
         ConvertPdftoText(link,
@@ -216,43 +242,6 @@ ReadLink <-
 
     linkStatus <- "Error: Failed to read file"
     return(c(linkStatus, ''))
-  }
-
-#' CleanText
-#'
-#' Clean up text from pdfExtractor new lines, dashlines, and lower text
-#'
-#' @param text text
-#' @param pdfExtractor pdfExtractor
-#' @param newLine newLine
-#' @param dashLine dashLine
-#' @param lowerCase lowerCase
-#'
-#' @return CleanText
-#'
-CleanText <-
-  function(text,
-           pdfExtractor = F,
-           newLine = T,
-           dashLine = F,
-           lowerCase = F) {
-    if (pdfExtractor == T)
-      text <-
-        gsub("[(][a-zA-Z0-9. ]*PDF Extractor SDK[a-zA-Z0-9 .]*[)]",
-             "",
-             text,
-             perl = T)
-
-    if (newLine == T)
-      text <- gsub("\r|\n|\f", " ", text, perl = T)
-
-    if (dashLine == T)
-      text <- gsub("-", "", text, perl = T)
-
-    if (lowerCase == T)
-      text <- tolower(text)
-
-    return(text)
   }
 
 
