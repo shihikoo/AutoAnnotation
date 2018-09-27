@@ -267,11 +267,9 @@ CountPatternOverMatrix <-
     CountPattern <- function(text, pattern, ignoreCase = T) {
       locations <-
         gregexpr(pattern, text, ignore.case = ignoreCase, perl = T)
-      if (is.null(locations[[1]]) | locations[[1]][1] == -1)
-        return(0)
-      return (sum(sapply(locations,length)))
+      locations <- unlist(locations)
+      return (sum(locations != -1))
     }
-
 
     return(apply(
       text,

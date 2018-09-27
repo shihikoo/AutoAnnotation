@@ -13,20 +13,19 @@ dir.create(datafolder, showWarnings = F)
 outputFolder <- "output/"
 dir.create(outputFolder, showWarnings = F)
 
-dataFileName <- "full-pdfs-ALL-wDOIpdfLinks-04102017.txt"
-didctionaryName <- 'examples/AnnotationDictionary.txt'
-filefolder <- 'S:/TRIALDEV/CAMARADES/Alexandra/For Jing/PDF'
+dataFileName <- "RExport.csv"
+didctionaryName <- 'examples/Sample_Regex_Dictionary_Electrophysiology.csv'
+filefolder <- ''
 
 #-------- Read full information from the file ----------
-originalData <- read.delim(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
+originalData <- read.csv(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
 
 # #-------- some specific correction on pdf names ------------
 # myData$PdfRelativePath <- paste0('S:/TRIALDEV/CAMARADES/Alexandra/For Jing/PDF', gsub('#','',myData$PdfRelativePath),sep="/")
 index <- which(originalData$PdfRelativePath != "")
-originalData$PdfRelativePath[index]<-
-  paste0(filefolder, originalData$PdfRelativePath[index], sep="")
+originalData$PdfRelativePath[index] <- paste0(filefolder, originalData$PdfRelativePath[index], sep="")
 
-myData <- originalData[1:2,]
+myData <- originalData[1,]
 
 annotationResults <- CountTermsInStudies(searchingData = myData
                                , dictionary = didctionaryName)
