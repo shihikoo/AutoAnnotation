@@ -28,8 +28,8 @@ originalData$PdfRelativePath[index] <- paste0(filefolder, originalData$PdfRelati
 myData <- originalData[1,]
 
 annotationResults <- CountTermsInStudies(searchingData = myData
-                               , dictionary = didctionaryName,
-                               textSearchingHeaders = ""
+                               , dictionary = didctionaryName
+                               , linkSearchHeaders = "PdfRelevantPath"
                                )
 
 

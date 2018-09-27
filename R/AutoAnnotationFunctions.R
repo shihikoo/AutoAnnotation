@@ -300,9 +300,9 @@ CountPatternInPar <- function(myStudies = NULL
                               ,
                               myDictionary
                               ,
-                              textSearchingHeaders = c('Title', 'Abstract')
+                              textSearchingHeaders = ""
                               ,
-                              linkSearchHeaders = 'PdfRelativePath'
+                              linkSearchHeaders = ""
                               ,
                               dictionaryNameHeader = 'Name'
                               ,
@@ -378,8 +378,8 @@ CountPatternInPar <- function(myStudies = NULL
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
 #'  It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 #'  If there is only one column, that column will be used both as name and regular expression.
-#' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract')
-#' @param linkSearchHeaders A list of the headers of the columns to links to read and search from. A list of character. Default value is c('PdfRelativePath')
+#' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is ""
+#' @param linkSearchHeaders A list of the headers of the columns to links to read and search from. A list of character. Default value is ""
 #' @param dictionaryNameHeader The header string of name column in dictionary. Default value is 'Name'.
 #' @param dictionaryRegexHeader The header string of regular expression column in dictionary. Default value is 'Regex'.
 #' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not. Default value is TRUE.
@@ -394,9 +394,9 @@ CountTermsInStudies <- function(searchingData = NULL
                                 ,
                                 dictionary = NULL
                                 ,
-                                textSearchingHeaders = c('Title', 'Abstract')
+                                textSearchingHeaders = ""
                                 ,
-                                linkSearchHeaders = c('PdfRelativePath')
+                                linkSearchHeaders = ""
                                 ,
                                 dictionaryNameHeader = 'Name'
                                 ,
@@ -457,8 +457,8 @@ CountTermsInStudies <- function(searchingData = NULL
 #' @param dictionary Either a dictionary dataset, or a link to the dictionary dataset to run the function on.
 #'  It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 #'  If there is only one column, that column will be used both as name and regular expression.
-#' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
-#' @param linkSearchHeaders A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')
+#' @param textSearchingHeaders A list of the headers of the columns to search from. A list of character. Default value is empty string
+#' @param linkSearchHeaders A list of the headers of the columns to read and search from. A list of character. Default value is empty string
 #' @param dictionaryNameHeader The header string of name column in dictionary
 #' @param dictionaryRegexHeader The header string of regular expression column in dictionary
 #' @param ignoreCase boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not
@@ -473,9 +473,9 @@ IdentifyTermsInStudies <- function(searchingData = NULL
                                    ,
                                    dictionary = NULL
                                    ,
-                                   textSearchingHeaders = c('Title', 'Abstract')
+                                   textSearchingHeaders = ""
                                    ,
-                                   linkSearchHeaders = c('PdfRelativePath')
+                                   linkSearchHeaders = ""
                                    ,
                                    dictionaryNameHeader = 'Name'
                                    ,
@@ -523,7 +523,10 @@ IdentifyTermsInStudies <- function(searchingData = NULL
 #'
 RiskOfBiasIdentification <- function(searchingData) {
   results <-
-    IdentifyTermsInStudies(searchingData = searchingData, dictionary = 'extra/ROBRegularExpression.txt')
+    IdentifyTermsInStudies(searchingData = searchingData
+                           , dictionary = 'extra/ROBRegularExpression.txt'
+                           , linkSearchHeaders = "PdfRelevantPath"
+                           )
 
   return(results)
 }
