@@ -334,7 +334,7 @@ CountPatternInPar <- function(myStudies = NULL
       .export = c("ReadLink", "CountPatternOverMatrix")
     ) %dopar% {
       options(stringsAsFactors = F)
-      myStudy <- myStudies[i,]
+      myStudy <- myStudies[i,,drop=F]
 
       # Read fulltext. Convert if the link is a pdf link. Return Status and fulltext
       myStudy[, c(linkStatusHeader, linkFullTextHeader)] <-
@@ -353,7 +353,7 @@ CountPatternInPar <- function(myStudies = NULL
         myRegex,
         CountPatternOverMatrix,
         margin = 1,
-        text = myStudy[,!(names(myStudy) %in% c(linkSearchHeaders, linkStatusHeader))],
+        text = myStudy[,!(names(myStudy) %in% c(linkSearchHeaders, linkStatusHeader)), drop=F],
         ignoreCase = ignoreCase
       )
 

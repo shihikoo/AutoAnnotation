@@ -28,7 +28,11 @@ originalData$PdfRelativePath[index] <- paste0(filefolder, originalData$PdfRelati
 myData <- originalData[1,]
 
 annotationResults <- CountTermsInStudies(searchingData = myData
-                               , dictionary = didctionaryName)
+                               , dictionary = didctionaryName,
+                               textSearchingHeaders = ""
+                               )
+
+
 
 annotationOnlyResults <- sapply(annotationResults[, -1], function(x) as.numeric(as.character(x)))
 

@@ -1,0 +1,1426 @@
+Neuropharmacology 79 (2014) 515e524
+
+Contents lists available at ScienceDirect
+
+Neuropharmacology
+journal homepage: www.elsevier.com/locate/neuropharm
+
+Characterization of altered intrinsic excitability in hippocampal CA1
+pyramidal cells of the Ab-overproducing PDAPP mouse
+T.L. Kerrigan a, J.T. Brown a, b, A.D. Randall a, b, *
+a
+b
+
+School of Physiology and Pharmacology, University of Bristol, University Walk, Bristol BS8 1TD, UK
+Institute of Biomedical and Clinical Sciences, University of Exeter Medical School, The Hatherly Building, Exeter EX4 4PS, UK
+
+a r t i c l e i n f o
+
+a b s t r a c t
+
+Article history:
+Received 30 April 2013
+Received in revised form
+21 August 2013
+Accepted 4 September 2013
+
+Transgenic mice that accumulate Ab peptides in the CNS are commonly used to interrogate functional
+consequences of Alzheimer’s disease-associated amyloidopathy. In addition to changes to synaptic
+function, there is also growing evidence that changes to intrinsic excitability of neurones can arise in
+these models of amyloidopathy. Furthermore, some of these alterations to intrinsic properties may occur
+relatively early within the age-related progression of experimental amyloidopathy. Here we report a
+detailed comparison between the intrinsic excitability properties of hippocampal CA1 pyramidal neurones in wild-type (WT) and PDAPP mice. The latter is a well-established model of Ab accumulation
+which expresses human APP harbouring the Indiana (V717F) mutation. At the age employed in this study
+(9e10 months) CNS Abeta was elevated in PDAPP mice but signiﬁcant plaque pathology was absent.
+PDAPP mice exhibited no differences in subthreshold intrinsic properties including resting potential,
+input resistance, membrane time constant and sag. When CA1 cells of PDAPP mice were given depolarizing stimuli of various amplitudes they initially ﬁred at a higher frequency than WT cells. Commensurate with this, PDAPP cells exhibited a larger fast afterdepolarizing potential. PDAPP mice had narrower
+spikes but action potential threshold, rate of rise and peak were not different. Thus not all changes seen
+in our previous studies of amyloidopathy models were present in PDAPP mice; however, narrower
+spikes, larger ADPs and the propensity to ﬁre at higher frequencies were consistent with our prior work
+and thus may represent robust, cross-model, indices of amyloidopathy.
+This article is part of a Special Issue entitled ‘Neurodevelopment Disorder’.
+Ó 2013 The Authors. Published by Elsevier Ltd. Open access under CC BY license.
+
+Keywords:
+Alzheimer’s disease
+Hippocampus
+Electrophysiology
+Excitability
+Brain slice
+Action potential
+
+1. Introduction
+Excessive generation and/or accumulation of beta-amyloid
+peptides (Ab) within the CNS is thought to be a signiﬁcant causal
+factor in producing the functional deﬁcits and neuronal death that
+are characteristic of Alzheimer’s disease (AD) (Hardy, 2009). Ab
+peptides are produced through enzymatic cleavage of amyloid
+precursor protein (APP) via the sequential activity of beta and
+gamma secretases, respectively (Zhang et al., 2012). The centrestage position of the amyloid hypothesis in the pathobiology of
+AD has motivated the generation of a considerable number of
+
+* Corresponding author. School of Physiology and Pharmacology, University of
+Bristol, University Walk, Bristol BS8 1TD, UK. Tel.: þ44 (0)117 3311931.
+E-mail address: A.D.Randall@bristol.ac.uk (A.D. Randall).
+0028-3908 Ó 2013 The Authors. Published by Elsevier Ltd. Open access under CC BY license.
+http://dx.doi.org/10.1016/j.neuropharm.2013.09.004
+
+transgenic mouse lines which in CNS Ab levels become hugely
+elevated in an age-dependent manner. These mice have become
+widely-employed experimental models of AD-associated progressive amyloidopathy, and are used both for probing the multifaceted functional consequences of prolonged Ab elevation and
+for the development of novel therapeutic agents (Lalonde et al.,
+2012; Morrissette et al., 2009).
+A plethora of neurophysiological studies of transgenic mice with
+elevated Ab have appeared in the published literature over the last
+15 years (Randall et al., 2010). Like the very ﬁrst papers, many of
+these have focussed on analysis of synaptic function and plasticity
+in hippocampus (Brown et al., 2005; Chapman et al., 1999; Fitzjohn
+et al., 2008; Hsia et al., 1999; Larson et al., 1999; Oddo et al., 2003),
+or cerebral cortex (Roder et al., 2003). More recently other aspects
+of neurophysiological function in Ab overproducing mice have
+begun to receive increased attention, in particular signiﬁcant alterations to intrinsic excitability of single neurones (Brown et al.,
+2011; Driver et al., 2007; Minkeviciene et al., 2009; Verret et al.,
+2012; Wykes et al., 2012) and disturbances to synchronized
+
+516
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+activity in deﬁned neuronal networks (Brown et al., 2011; Driver
+et al., 2007; Palop et al., 2007; Verret et al., 2012).
+At the single cell level, some studies have reported little or no
+change to the intrinsic excitability of hippocampal or cortical neurones in the face of a signiﬁcant amyloid load (Rocher et al., 2008;
+Spencer et al., 2006). More recent studies, however, have pointed
+to various modiﬁcations to intrinsic excitability properties in Ab
+overproducing mice; these include depolarized resting potentials
+and consequent hyperexcitability in Layer II/III cortical pyramidal
+cells of APdE9 double transgenic mice (Minkeviciene et al., 2009)
+and depression of the slow after-hyperpolarization (sAHP) of hippocampal CA1 pyramidal cells of TAS10 mice (Driver et al., 2007).
+Changes have also been reported in inhibitory cells, for example the
+resting potential of parvalbumin-positive, fast spiking, GABAergic
+interneurones of layer II/III of the parietal cortex of J20 mice was
+reported to be depolarized by w6 mV, furthermore spike amplitude
+was decreased compared to controls e whereas neither change was
+seen in pyramidal cells of the same brain area (Verret et al., 2012).
+In our own laboratory, studies of the Ab-overproducing PSAPP
+double transgenic mouse line revealed an intrinsic hyperexcitability
+in CA1 pyramidal cells (CA1-PC) at approx 8 months of age. This was
+manifest as an increased burstiness in the pattern of action potential ﬁring triggered by weakly suprathreshold 500 ms depolarizing
+current injections (Brown et al., 2011). This intrinsic hyperexcitability was parallelled by an enhanced after-depolarizing potential
+(ADP) and changes to action potential waveform including, a
+reduced spike width and a reduction in spike height and rate of rise
+which likely result from a w50% loss of functional voltage-gated
+Naþ channels revealed by voltage clamp recordings from nucleated macropatches (Brown et al., 2011), a change that we demonstrated also occurs in another Ab overproducing mouse, Tg2576
+(Brown et al., 2011). Changes to action potential properties, and the
+Ca2þ entry they evoke, was also seen in CA1 pyramidal cells of preplaque CRND8 mice (Wykes et al., 2012), in line with our work
+(Brown et al., 2011), this group found spikes to be narrower and
+suggested this may arise from increased levels of Kv3.1 channels.
+Thus, studies at the single cell level in a range of different Aboverproducing mice have uncovered a number of changes to
+intrinsic excitability properties in various cortical and hippocampal
+cell-types in various different models. However, because almost
+every study considers a different model and/or cell type (and
+usually involves what can be signiﬁcant methodological differences) what remains unclear is which, if any, of these changes are
+consistently and robustly observed across multiple Ab-overproducing mouse models. As a starting point to addressing this
+question we have performed a new study of the intrinsic properties
+of CA1-PC under conditions close to identical to those we employed
+previously (Brown et al., 2011), but rather than studying the PSAPP
+mouse we employed an alternative Ab-overproducing transgenic
+line, namely PDAPP (Games et al., 1995). This mouse transgenically
+expresses APP harbouring the Indiana mutation (which lies at the
+gamma secretase site) rather than the Swedish mutation, which
+lies at the beta secretase site of APP, and which is combined with
+the presenilin 1 M146L mutation in PSAPP mice (McGowan et al.,
+1999). Our experiments point to both similarities and differences
+from the changes observed in PSAPP mice, and may start to highlight neurophysiological changes that occur in multiple Ab overproducing lines.
+2. Methods
+
+I
+
+x pA
+x-100 pA
+
+V
+
+V
+10%
+
+2 mV
+100 ms
+
+V
+
+V
+
+95%
+
+Fig. 1. Schematic illustration of methods used to measure passive intrinsic properties
+of CA1 pyramidal cells. Passive properties were determined from the voltage response
+to a negative current injection applied to cells with a baseline voltage (Vbsl) set to
+w82 mV with a suitable level of current injection (x). The cell is hyperpolarized by
+injecting 100 pA of negative current for 500 ms (such that the current passing at that
+time is x  100 pA). When this occurs the membrane potential charges towards a
+negative peak (Vmaxneg) over a period of around 15e50 ms. Following this the membrane potential “sags” back in a depolarized direction reaching a steady state level
+(V500) before the end of the current injection. When the negative current step is ceased
+and returned to the resting level of x pA the membrane potential transiently overshoots to a peak (Vposmax) before returning to Vbsl. As well as measuring the voltage
+levels described above we ﬁt a single exponential decay between the 10 and 95% time
+points of the initial charging response (crossed circles). From this ﬁt we extract
+membrane time constant (smem) and also the extrapolated voltage at inﬁnite time (VN).
+PDGF-b chain promoter and results in an age-dependent accumulation of Ab peptides including the production of amyloid plaques in older animals (Games et al.,
+1995). All studies where performed on mice aged 9e10 months and were
+designed to compare the phenotype of PDAPP mice with WT littermates. In our
+cohorts at this age there is no signiﬁcant amyloid plaque pathology but elevated
+levels of Ab peptides were conﬁrmed in PDAPP mice using Western blotting (see
+below). All animals were supplied by Eli Lilly as part of the Pharmacog initiative. The
+animals arrived just prior to the study age and arrived in three separate shipments
+over an 8 month period. In total over 30 mice of each genotype contributed to this
+study. From weaning onwards mice were singly housed with access to food and
+water ad libitum. They experienced a standard 12:12 light/dark cycle. All procedures
+were carried out in accordance with local ethical guidelines and UK Home Ofﬁce
+legislation set out in the Animals (Scientiﬁc Procedures) Act (1986).
+2.2. In vitro electrophysiological recordings
+Mice were sacriﬁced by cervical dislocation. Brains were rapidly removed and
+placed in ice cold (w4  C), sucrose-based cutting solution comprising (in mM):
+sucrose, 189; D-glucose, 10; NaHCO3, 26; KCl, 3; MgCl2, 5; CaCl2, 0.1; NaH2PO4, 1.25,
+continuously bubbled with carbogen (95% O2, 5% CO2). The whole brain (minus the
+cerebellum) was mounted on a steel plate and 300 mm horizontal sections were cut
+using a vibratome (Leica VT1200). After sectioning, hippocampal slices were
+transferred to a submerged storage chamber containing artiﬁcial cerebrospinal ﬂuid
+(aCSF) comprising (in mM): NaCl, 124; KCl, 3; NaHCO3, 26; CaCl2, 2; NaH2PO4, 1.25;
+MgSO4, 1; D-glucose, 10 and equilibrated with 95% O2 and 5% CO2 and were gradually
+heated to w32e34  C for 30 min, after which they were stored at room temperature.
+Slices were transferred to a submersion-style recording chamber that was continuously perfused (1e2 ml min1) with aCSF. The aCSF temperature was maintained at
+33  1  C by a feedback circuit. Pyramidal neurones were visually identiﬁed within s.
+pyramidale of area CA1 using infra-red differential interference contrast optics.
+Whole cell current recordings were made using ﬁre-polished, borosilicate glass
+microelectrodes (3e5 MU). The pipette solution contained (mM): K-gluconate, 145;
+NaCl, 20; K-HEPES, 10; EGTA, 0.2; Na-GTP, 0.3; Mg-ATP, 4; pH 7.3, 285e290 mOsm. A
+liquid junction potential error (15 mV) between this solution and the aCSF was
+corrected for arithmetically.
+All recordings were made using a MultiClamp 700B ampliﬁer (Molecular Devices, Union City, CA). Recordings were lowpass ﬁltered (10 kHz) and then digitized
+(100 kHz) using a Digidata 1440A and stored on a personal computer using
+pClamp10 electrophysiology software.
+
+2.1. Transgenic mice
+2.3. In vitro electrophysiology data analysis
+Male PDAPP transgenic mice and WT littermate controls (Games et al., 1995)
+were the subjects of this study. This single transgenic mouse line expresses human
+APP carrying the Indiana (V717F) mutation. Transgene expression is directed by the
+
+Analysis of current clamp recordings, including action potential waveform
+analysis was carried out with custom written routines within the Matlab
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+Ri ¼ 100=ðVbsl  V500 Þ
+this measurement therefore incorporates the decrease in membrane resistance that
+occurs as the result of activation of HCN channels and the voltage “sag” this elicits.
+Our second measure of membrane resistance (Rxtr) instead employs the voltage
+difference between Vbsl and the inﬁnite time asymptote of the exponential ﬁt to the
+membrane charging curve (VN).
+
+A.
+Amyloid-β
+
+~ 4 kDa
+
+β-Actin
+
+~ 47 kDa
+
+O.D (Amyloid-β/β-Actin)
+
+environment. Resting potential was deﬁned as the average zero current potential
+measured in current clamp over a 10 s period soon after gaining whole cell access e
+it was always the ﬁrst measurement made in every cell, because we have found that
+some protocols which drive repeated action potential ﬁring can cause long term
+changes to resting potential (in essence a form of activity-dependent persistent
+intrinsic plasticity). Other subthreshold membrane properties, namely input resistance, membrane time constant and “sag” were determined from the voltage responses to 500 ms duration, 100 pA current injections. Fig. 1 illustrated the various
+voltage levels and the ﬁt used to perform these various measurements. The membrane time constant (smem) was determined by ﬁtting a best single exponential
+decay to the negative-going membrane charging trajectory produced by current
+injection. This ﬁt was made between timepoints corresponding to voltages 10% and
+95% of the distance between the pre-stimulus baseline (Vbsl) and the peak hyperpolarization achieved during the current injection (Vmaxneg). Input resistance was
+determined in two different ways, both based upon Ohm’s law. The ﬁrst measure (Ri)
+used the voltage difference between the pre-stimulus membrane potential (Vbsl,
+w82 mV) and the mean steady state voltage observed in the ﬁnal 10 ms of the
+500 ms of current injection (V500)-
+
+n=11 per group
+P<0.02
+
+0.5
+
+WT
+
+Genotype
+
+PDAPP
+
+-60
+
+-70
+
+
+ Vbsl :
+
+Vrest (mV)
+
+Vmaxneg
+
+**
+
+B.
+
+Similarly, two measures of “sag” were made. The ﬁrst (Sagsub) used the voltage
+difference between the peak hyperpolarization (Vmaxneg) observed during the current stimulus and V500; with sag being deﬁned as
+Sagsub ¼ 100* Vmaxneg  V500
+
+1.0
+
+0.0
+
+Rxtp ¼ 100=ðVbsl  VN Þ
+
+
+
+517
+
+The alternative measure of sag (Sagﬁt) employed the value of VN in place of
+
+-80
+
+Vmaxneg
+Sagfit ¼ 100*ðVN  V500 Þ=ðVN  Vbsl Þ:
+
+-90
+WT
+
+PDAPP
+
+C.
+-75
+-80
+Vmem (mV)
+
+Due to the effects of sag activation reducing the peak hyperpolarization achieved
+it is expected that Rxtp > Ri and Sagﬁt > Sagsub. This was always in our recordings
+with Rxtp and Sagﬁt typically being around 25e30% larger.
+We also measured the size of the rebound potential (Vrbd) seen when negative
+current injection was ceased. This was measured as the difference between Vbsl and
+the most depolarized potential observed following removal of current injection
+Vposmax. As expected, Vrebd was strongly positively correlated with both Sagﬁt and
+Sagsub.
+Action potential threshold was deﬁned as the voltage at the foot of the action
+potential where dV/dt ﬁrst exceeds 15 V s1. Action potential width was measured at
+15 mV, a membrane potential which lies approximately half way between action
+potential threshold (circa 60 mV) and action potential zenith (circa þ30 mV) in
+CA1-PCs.
+
+-85
+WT
+PDAPP
+
+-90
+
+2.4. Western blotting
+In the process of preparing tissue for electrophysiological recording single
+hippocampal slices were set aside from 11 PDAPP and 11 WT littermate controls.
+Immediately following their preparation the slices were snap frozen with liquid
+nitrogen, they were then thawed and homogenized in RIPA lysis buffer (Sigma, UK)
+containing both phosphatase inhibitor 2 þ 3 (Sigma, UK) and protease inhibitor
+cocktail (Roche, UK). Following this the lysate was again snap frozen and stored at
+80  C until used with other samples in blotting.
+For Western blotting ﬁrst the protein content of each sample was determined
+using the bicinchoninic acid assay (BCA), (Sigma, UK). Protein (15 mg) was then
+separated on 4e20% graded SDS-PAGE gels and transferred onto PVDF membrane
+(BioRad, UK). Membranes were incubated with the 4G8 mouse monoclonal antibody
+raised against Amyloid-b (1:1000 dilution, Millipore, UK), followed by incubation
+with peroxidase-conjugated goat antibody to mouse IgG (Sigma, UK). The blots were
+then developed with enhanced chemiluminescence (ECL) reagent (Pierce, Biotechnology, Rockford, USA). The same samples were stripped and re-probed for b-actin
+(Abcam, Cambridge, UK) which acted as a loading control. Optical densities of
+immunoreactive bands were quantiﬁed using NIH ImageJ software (downloaded
+from http://rsb.info.nih.gov/ij/). Ab immunoreactivities were normalized to the
+quantity of total b-Actin band intensity in each lane.
+
+-95
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+Time (s)
+Fig. 2. Comparison of resting potential and voltage responses to subthreshold
+current injections. A) Top, an example Western blot presenting data from 4 PDAPP
+and 4 WT mice. Data for both Ab and the housekeeping protein actin are shown.
+Bottom, pooled Western blot data from 11 animals of each genotype plotting the
+ratio of the Ab signal to that derived from actin. The groups were signiﬁcantly
+different when compared with an unpaired t-test. B) A graph comparing the zero
+current potential recording soon after gaining whole cell access (Vrest) for CA1-PC of
+WT and PDAPP mice. In these and all subsequent plots of this type each symbol
+represents a single recording whereas the boxes adjacent to the right present group
+data for mean (central diamond) as well as median and standard error (box). In this
+and all other ﬁgures WT data are in black and PDAPP data in grey. C) Average
+membrane voltage responses to 100 pA (downward) and þ50 pA (upward) current injections lasting 500 ms and applied to cells at w82 mV. The dashed lines
+are standard error of the mean. Data from WT (black) and PDAPP (grey) mice are
+almost indistinguishable.
+
+2.5. Data presentation
+All data are presented as mean  SEM. Each data point represents a recording
+from a single CA1 pyramidal neurone. In total over 30 mice of each genotype were
+used in this study. In the box plots shown in Figs. 2, 3 and 6, the individual symbols
+
+to the left plot data from every individual recording whereas the boxes to the right
+show the upper and lower standard error and the median (boxes), plus the mean
+(central symbol). Following testing for normality comparisons between groups were
+made using Student’s t-test or ANOVA as appropriate.
+
+518
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+Fig. 3. Comparisons of multiple subthreshold intrinsic properties between WT and PDAPP littermates. The graphs present comparisons of multiple intrinsic properties measured
+from the voltage response to a 100 pA current stimulus. Data are shown for resting input resistance measured two ways, Ri (A), Rxtr (B); sag measured two ways, Sagsub (C) and
+Sagﬁt (D), smem (E) and Vrbd (F). For details on calculation of these parameters see Methods and Fig. 1.
+
+3. Results
+The original descriptions of the PDAPP mouse demonstrated the
+presence of an amyloid plaque pathology as early as 6 months
+(Games et al., 1995), the extent of this pathology then grew in
+severity as the animals aged. In the PDAPP cohorts we have studied,
+however, the development of plaque pathology is less aggressive,
+and at the timepoint studied here there were essentially no visible
+plaques. Abeta levels were however signiﬁcantly elevated as
+demonstrated by Western blotting analysis of 11 PDAPP and 11 WT
+littermate mice (Fig. 2A).
+Others have reported resting potentials of some neurones to be
+depolarized in the face of an amyloid pathology (Minkeviciene et al.,
+2009; Verret et al., 2012). In this study the zero current potential
+measured in current clamp soon after obtaining whole cell access
+was not different between the two genotypes (80.8  0.8 mV,
+n ¼ 68 in WT animals and 80.5  0.7, n ¼ 56 in PDAPPs, Fig. 2B,
+Table 1). Thus, as found in our previous study of PSAPP mice (Brown
+et al., 2011), under our recording conditions the resting potential of
+CA1-PCs does not seem to be perturbed by elevated Ab.
+Although resting potentials were not different across the two
+genotypes there was the expected spread of values between cells
+(illustrated by the symbols in Fig. 2B). Most intrinsic properties of
+neurones (with the exception of capacitance) exhibit some
+dependence on membrane potential, for example the input
+
+resistance of pyramidal cells varies with membrane potential,
+largely due to the presence of HCN and Kv7 channels. Thus, to
+reduce cell-to-cell variability in intrinsic parameters arising from
+resting potential variance, the remainder of our characterizations
+were made from a membrane potential set to approx 82 mV by
+application of the required small amount current injection. In posthoc analysis of the recordings the actual membrane potentials
+achieved by this manipulation averaged 82.0  0.3 mV, n ¼ 71
+Table 1
+Intrinsic parameters and action potential waveform in WT and PDAPP mice. NS ¼ not
+signiﬁcantly different.
+WT
+
+PDAPP
+
+Vrest (mV)
+Vmaxneg (mV)
+Vrbd (mV)
+Rin (MU)
+Rxtp (MU)
+smem (ms)
+Sagsub (%)
+Sagﬁt (%)
+
+80.8
+11.5
+1.6
+96.6
+122.1
+16.7
+15.7
+20.2
+
+
+
+
+
+
+
+
+
+
+0.8
+3.2
+0.7
+25.5
+36.1
+4.0
+3.9
+5.7
+
+80.5
+12.1
+1.6
+102.1
+128.2
+16.3
+15.0
+18.9
+
+
+
+
+
+
+
+
+
+
+0.7 mV
+3.8 mV
+0.8 mV
+31.7 mU
+46.8 mU
+7.2 ms
+5.8
+8.2
+
+NS
+NS
+NS
+NS
+NS
+NS
+NS
+NS
+
+AP
+AP
+AP
+AP
+
+26.9
+451.7
+0.7
+59.6
+
+
+
+
+
+
+7.4
+80.5
+0.1
+4.1
+
+25.6
+468.2
+0.6
+60.6
+
+
+
+
+
+
+7.2
+93.4
+0.1
+3.4
+
+NS
+NS
+p < 0.001
+NS
+
+peak (mV)
+max. rate of rise (mV ms1)
+width at 15 mV (mV)
+threshold (mV)
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+and 82.1  0.1 mV, n ¼ 58, for the WT and PDAPP groups,
+respectively.
+A 500 ms injection of 100 pA of negative current into CA1-PCs of
+both genotypes caused a classical response of membrane charging
+towards a negative peak followed by “sag” back to a somewhat less
+negative steady state membrane potential. Following cessation of
+the applied negative current, the membrane potential depolarized
+again and overshot its resting level to produce a transient rebound
+potential which decayed back to rest over around 200 ms. Fig. 2C
+plots the average of these voltage responses from all 71 WT and 58
+PDAPP cells examined in this way; it is clearly apparent that they
+are very similar. In agreement with this, the average responses to a
+50 pA depolarizing current injection were also very similar (Fig. 2C).
+To conﬁrm this similarity statistically, we quantiﬁed on a cell-bycell basis, the membrane time constant (smem), the maximum hyperpolarization achieved (Vmaxneg), the input resistance (measured
+in two different ways, Ri and Rxtp, see Methods) the amount of sag
+(measured in two different ways, Sagsub and Sagﬁt see Methods) as
+well as the amplitude of the rebound potential (Vrbd) following
+cessation of current injection. This analysis was performed on the
+responses to 100 pA current injections. As shown in Fig. 3AeF and
+Table 1, none of these parameters were signiﬁcantly different when
+the two genotypes were compared.
+We tested action potential ﬁring responses to current stimuli
+ranging from þ50 to þ300 pA in applied in 50 pA increments
+(Fig. 4A). This was also performed using the same set pre-stimulus
+membrane potential of 82 mV. When given a sufﬁciently large
+stimulus every cell of both genotypes produced action potential
+ﬁring. The fraction of the total population of each genotype ﬁring
+one or more spikes for each amplitude of current stimulus is shown
+in Fig. 4B. This suggests that cells in PDAPP mice are slightly easier
+to produce action potential ﬁring in when using weak current
+stimuli, for example 46% of WT CA1-PC ﬁred in response
+to þ100 pA whereas 57% ﬁred in PDAPP mice, however this was not
+a signiﬁcant difference (2-sample KeS test). Fig. 4C and D plot the
+mean number of spikes ﬁred for each magnitude of current stimulus. The data in Fig. 4C are average spike counts for all cells
+including those not ﬁring (i.e. a spike count of zero) for a given
+stimulus. Whereas in Fig. 4D, data are shown only for cells that ﬁred
+at least one spike in response to the corresponding stimulus
+amplitude. In either situation, although signiﬁcantly more spikes
+were ﬁred as the stimulus current was increased, there was no
+difference in spike number between the two groups.
+For each depolarizing stimulus applied, as well as analysing the
+number of CA1-PC ﬁring, or the number of spikes ﬁred, it is also
+important to investigate the temporal pattern of spiking. This is
+exempliﬁed by our previous study of PSAPP mice in which although
+fewer spikes ﬁred in total, they ﬁred in a more bursty manner,
+exhibiting a period of higher frequency ﬁring close to the onset of
+the current stimulus, particularly with weak current injections
+(Brown et al., 2011); relating to this increase propensity to ﬁre at
+high frequencies, CA1-PC also exhibited a larger spike after depolarization when activated with a short (2 ms) strong (2 nA) current
+injection (Brown et al., 2011). In the present study, broadly similar
+observations were made as illustrated by the plots of instantaneous
+frequency versus spike pair number for each of the ﬁrst 10 interspike intervals (Fig. 5AeE). Data are shown for current injections
+ranging from þ100 to þ300 pA applied to both genotypes (50 pA
+depolarizing stimuli only produced spikes in 2 of 73 WT and 3 of 58
+PDAPP neurones). These graphs show that, as is classically reported
+in CA1-PC, the ﬁrst action potentials to ﬁre arise at higher frequencies (e.g. 180 Hz for 300 pA stimuli), before spike frequency
+accommodation develops and reduces the mean ﬁring rate to
+somewhere between 25 and 50 Hz. Also apparent is that the ﬁring
+frequency was consistently higher in PDAPP cells, an effect that is
+
+519
+
+particularly marked for the weaker (and perhaps more physiologically pertinent) current stimuli. In line with this, the amplitude of
+the fast ADP that followed a single action potential triggered by a
+2 ms, 2 nA current stimulus was signiﬁcantly larger in PDAPP mice
+(Fig. 5F). In contrast, the small AHP that follows the ADP evoked in
+this fashion was not altered in size (P > 0.5).
+In our published study of PSAPP mice we also identiﬁed
+changes in action potential waveform. Speciﬁcally, we observed a
+decreased action potential height, rate of rise and width at
+15 mV, whereas action potential threshold was unaltered (Brown
+et al., 2011). Here, as in our PSAPP study, we analysed the waveform of the ﬁrst spike ﬁred by a 300 pA current stimulus applied at
+82 mV (Fig. 6AeD). Compared to WT littermates, in PDAPP animals we did not see any signiﬁcant change in spike height or rate
+of rise, however, we saw a signiﬁcant decrease in spike width
+similar to that we previously identiﬁed in PSAPP mice (Brown
+et al., 2011). Also as in PSAPP mice, we did not see any change in
+action potential threshold. The narrower action potential but lack
+of change in other parameters is further illustrated in Fig. 7 which
+plots the peak-aligned average spike waveforms from all of our
+PDAPP and WT recordings of CA1-PC.
+4. Discussion
+In this study we have used brain slice patch clamp methods to
+investigate the intrinsic excitability properties of the Ab-overproducing PDAPP mouse. This is a well established model of CNS
+amyloidopathy produced by transgenic expression of a known
+disease-causing mutation in amyloid precursor protein (Games
+et al., 1995). To our knowledge, a study of intrinsic excitability
+properties in neurones of this model has not been performed elsewhere. This investigation was speciﬁcally designed to closely mirror
+our previous work in different Ab overproducing mice, Table 2
+summarizes and compares the ﬁnds of this study and our other
+recently published work on PSAPP mice (Brown et al., 2011). This
+may suggest to some that the present study is not especially novel or
+interesting, just a repeat of previous work in a different model. We
+feel, however, for any class of pathological model it is important to
+establish which neurophysiological changes are consistently
+observed in multiple mouse lines, because this will instil greater
+conﬁdence that these outcomes represent pathology-dependent,
+rather than single model-dependent, phenotypes.
+In this respect, one might argue that no reliable single neurophysiological outcome is known to reliably occur in multiple Ab
+overproducing mice lines. Probably the most widely studied neurophysiological phenotypic measure in such mice is the extent of NMDA
+receptor-dependent hippocampal long-term potentiation. This has
+been the subject of dozens of historical studies performed in either
+the Schaffer collateral commissural or perforant pathways both
+in vitro and vivo (reviewed in Randall et al. (2010)). More recently this
+literature has been supplemented by the ﬁrst investigations of NMDA
+receptor-independent LTP in mossy ﬁbres (Witton et al., 2010).
+Although some studies ﬁnd LTP to be depressed by amyloidopathy,
+this it is far from a universal observation, with many reports of unaltered LTP in animals despite the presence of an advanced plaque
+pathology. There is even one report of enhanced LTP in animals with
+quite advanced pathology (Jolas et al., 2002). Thus, it appears there
+may be a need for a more universal or reliable functional outcome
+that can both be used to help understand the disease process and to
+aid in the development of disease modifying therapies.
+4.1. Resting potential
+Although others have reported changes to neuronal resting
+potentials in transgenic mice that overproduce Ab (Minkeviciene
+
+520
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+A.
+100 pA
+
+200 pA
+
+300 pA
+10 mV
+100 ms
+
+B.
+Fraction of cells firing >=1 AP
+
+1.0
+
+0.8
+
+0.6
+
+WT
+PDAPP
+
+0.4
+
+0.2
+
+0.0
+50
+
+100
+
+150
+
+200
+
+250
+
+300
+
+Current injected (pA)
+
+C.
+
+D.
+
+25
+
+25
+
+WT n=73
+PDAPP n=58
+
+20
+
+Number of spikes
+
+Number of spikes
+
+20
+
+WT
+PDAPP
+
+15
+
+10
+
+5
+
+15
+
+10
+
+5
+
+0
+
+0
+
+50
+
+100
+
+150
+
+200
+
+250
+
+Current injected (pA)
+
+300
+
+50
+
+100
+
+150
+
+200
+
+250
+
+300
+
+Current injected (pA)
+
+Fig. 4. Current thresholds and action potential counts in WT and PDAPP mice. A) Example recordings of voltage responses to 500 ms injections of 100, 200 or 300 pA of positive (i.e.
+depolarizing) current. The cell on the left was from a WT animal and that on the right from a PDAPP mouse. B) A graph plotting the fraction of all cells tested that produced at least
+one action potential in response to a given level of current injection. Although in PDAPP mice a larger proportion of cells ﬁred for each level of stimulus (except 300 pA where all
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+Instantaneous frequency (Hz)
+
+WT
+PDAPP
+
+100 pA
+
+200
+
+F=49.772
+p<0.001
+150
+
+100
+
+50
+
+0
+
+0
+
+2
+
+4
+
+6
+
+8
+
+B.
+Insta
+antaneous frequency (Hz)
+
+A.
+
+F=5.341
+F
+341
+p<0.05
+150
+
+100
+
+10
+
+50
+
+0
+
+0
+
+2
+
+WT
+PDAPP
+
+F=9.467
+p<0.01
+150
+
+100
+
+50
+
+0
+
+0
+
+2
+
+4
+
+6
+
+8
+
+D.
+
+10
+
+WT
+PDAPP
+
+F=12.887
+p=0.006
+150
+
+100
+
+50
+
+0
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+25
+20
+
+150
+
+ADP (mV
+V)
+
+Instantaneous freq
+quency (Hz)
+
+10
+
+F.
+
+F=14.482
+p=0.004
+
+100
+
+50
+
+0
+
+8
+
+Spike interval number
+
+WT
+PDAPP
+
+300 pA
+
+200
+
+6
+
+250 pA
+
+200
+
+Spike interval number
+
+E.
+
+4
+
+Spike interval number
+
+Instantaneo
+ous frequency (Hz)
+
+Instantaneous frequency (Hz)
+
+200 pA
+
+200
+
+WT
+PDAPP
+
+150 pA
+
+200
+
+Spike interval number
+
+C.
+
+521
+
+p=0 03
+* p=0.03
+
+15
+10
+5
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+Spike interval number
+
+0
+
+WT
+
+PDAPP
+
+Fig. 5. Higher frequency ﬁring is seen in PDAPP mice AeE) Graphs plotting, for current injections of 100e300 pA, the mean instantaneous ﬁring rate of WT and PDAPP CA1-PC for
+each of the ﬁrst 10 interspike intervals produced. Thus, the ﬁrst spike interval is between the ﬁrst and second spike, the second spike interval between the 2nd and 3rd spike etc.
+Although for most stimuli the ﬁring rates become quite similar after a few action potentials have ﬁred the initial ﬁring rates are always higher in the PDAPP animals. F) A graph of
+the amplitude of the fast ADP observed following a 2 ms duration, 2 nA current injection.
+
+et al., 2009) (Verret et al., 2012), we did not ﬁnd this to be the case
+in CA1-PCs of PDAPP mice (Fig. 2B). This lack of change is in
+agreement with our previously published study of 8e9 month old
+PSAPP mice (WT: 78.0  0.7 mV, n ¼ 22 versus PSAPP:
+78.8  1.2, n ¼ 22, Brown et al., 2011) and work in pre-plaque
+CRND8 mice (Wykes et al., 2012). We have also not seen a change in
+resting potential of CA1-PC when studying 15 month old PSAPP
+mice (WT 78.2  1.0 mV (n ¼ 25) versus PSAPP 79.4  1.2 mV
+(n ¼ 18), Claire Booth, AR and JB, unpublished observations) and 2
+
+month old PSAPP mice (Brown et al., 2011). Furthermore, in other
+unpublished studies from our lab employing very similar recording
+conditions, we have also not seen changes to resting potential of
+CA1-PCs in the widely studied Tg2576 mouse line. Indeed, this was
+the case in both 2 year old, amyloid plaque-bearing, Tg2576 mice
+(WT: 76.8  1 mV, n ¼ 23 versus Tg2576: 76.1  0.8 mV, n ¼ 23)
+or 8 month old Tg2576 mice (WT: 77.1  1.0 mV, n ¼ 13 versus
+Tg2576: 75.3  1.0 mV, n ¼ 13). At this latter age there is not a
+signiﬁcant amyloid plaque pathology but soluble Ab is elevated and
+
+cells ﬁred in both groups), there was not a signiﬁcant difference between the groups (2-sample KeS test). C) A histogram presenting the mean number of spikes ﬁred for each level
+of depolarizing stimulus including sweeps in which no spikes ﬁred. D) The same dataset as in (C) but presenting the number of spikes ﬁred only for sweeps in which one of more
+spikes ﬁred.
+
+522
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+B.
+
+A.
+
+800
+
+AP threshold (mV)
+
+-1
+
+AP max rate of rise (mV.ms )
+
+-40
+
+-50
+
+-60
+
+-70
+
+600
+
+400
+
+200
+
+0
+
+-80
+WT
+
+WT
+
+PDAPP
+
+C.
+
+D.
+1.0
+
+60
+50
+
+p=0.001
+
+0.8
+
+**
+AP width (ms)
+
+40
+
+APpeak(mV)
+
+PDAPP
+
+30
+20
+
+0.6
+0.4
+0.2
+
+10
+0
+
+0.0
+WT
+
+PDAPP
+
+WT
+
+PDAPP
+
+Fig. 6. Narrower action potentials are observed in CA1-PC of PDAPP mice. Scatter and box plots of four key action potential waveform parameters namely threshold (A), maximum
+rate of rise (B), peak amplitude of depolarization (C) and width at 15 mV (D). All data are from the ﬁrst action potential produced by a 300 pA current stimulus. Only the width was
+different between the groups with narrower spikes seen in the CA1-PC of PDAPP mice.
+
+Ab-related functional deﬁcits have been reported (Jacobsen et al.,
+2006). As well as a lack of change of resting potential in CA1-PC
+of PDAPP mice, we have also not seen any change to the resting
+potential of GABAergic interneurones in stratum oriens of these
+animals in recordings made under very similar conditions (WT
+
+40
+
+WT
+PDAPP
+
+Amplitude (mV)
+
+20
+0
+
+68.7  0.9, n ¼ 73 versus PDAPP: 68.3  1.4, n ¼ 48, Franceso
+Tamagnini, AR and JB unpublished observations).
+4.2. Other subthreshold intrinsic properties
+Changes to resting input resistance, membrane time constant, or
+sag can make signiﬁcant alterations to the intrinsic excitability and
+electrical dynamics of neurones. For example, changes to resting
+input resistance will modify how just about all current stimuli
+affect a cell’s response. Consequently, we have been mindful to
+study these parameters carefully. Thus, we measure input resistance not only from the post-sag, steady-state, voltage response to a
+hyperpolarizing current injection (which incorporates the
+
+Table 2
+A comparison of alterations to a range of intrinsic properties seen in this study and
+our previous investigation of PSAPP mice at 8e10 months.
+
+-20
+-40
+-60
+-80
+0.0
+
+PDAPP
+
+PSAPP
+
+Sagsub
+Sagﬁt
+
+NC
+NC
+NC
+NC
+NC
+NC
+NC
+NC
+
+NC
+NC
+Decreased
+NC
+NC
+NC
+Decreased
+Decreased
+
+Number of spikes in 500 ms
+Spike frequency
+ADP amplitude
+
+NC
+Increased
+Increased
+
+Decreased
+Increased
+Increased
+
+AP-peak
+AP max rate of rise
+AP width at 15 mV
+AP threshold
+
+NC
+NC
+Narrower
+NC
+
+Decreased
+Decreased
+Narrower
+NC
+
+Vrest
+Vmaxneg
+Vrbd
+Rin
+Rxtp
+
+0.5
+
+1.0
+
+1.5
+
+2.0
+
+2.5
+
+Time (ms)
+Fig. 7. Average action potential waveforms conﬁrm narrower spikes in PDAPP mice. A
+plot illustrating the average action potential waveforms from the PDAPP and WT
+groups. To create the plot spikes were temporally aligned by their peaks prior to
+averaging, 1 ms of data was taken before the peak and 1.75 ms afterwards. The thin
+dashed lines either side of the action potential trajectory reﬂect standard errors. The
+horizontal dashed line is at 15 mV the voltage at which action potential width was
+measured in Fig. 6 and Table 1. Note the action potential width is equally different at
+other potentials.
+
+smem
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+additional activation of Ih that occurs), but also make a measurement from the inﬁnite time extrapolation of the exponential ﬁt to
+the membrane charging curve. We also employ the same ﬁt to
+generate a second determination of the level of sag over and above
+that determined simply from the observed negative peak and postsag, steady-state negative deﬂection. Furthermore, because input
+resistance, membrane time constant and sag are known to have a
+dependence on membrane voltage, we usually measure them using
+a hyperpolarizing current injection applied at a set pre-stimulus
+membrane potential of 82 mV.
+With these approaches we failed to identify any differences in
+input resistance, membrane time constant or sag between PDAPP
+and WT mice (Fig. 3). Furthermore, the estimate of the capacitance
+derived by dividing the membrane time constant by the resting
+input resistance (derived from the ﬁt to membrane charging) was
+not different between the two genotypes (WT: 147  6 pF versus
+138  7 pF, P ¼ 0.33), indicating there was not a major change in
+neuronal surface area.
+The unaltered input resistance of PDAPP mice is in agreement
+with our previous work on PSAPP neurones at 2 and 8 months (Brown
+et al., 2011) and is also what is found in these animals at 15 months
+(Claire Booth, AR and JB, unpublished observations). In contrast, we
+have found input resistance to be circa 30% lower in 2 year old Tg2576
+mice (n ¼ 20) compared to WT littermates (n ¼ 17), a signiﬁcant
+difference (P < 0.005, JB and AR unpublished observations).
+The almost identical levels of sag we observed in PDAPP and WT
+mice stands in contrast to our recordings from PSAPP mice under
+very similar conditions, where we found the Ab overproducing
+line exhibited a signiﬁcant, w30%, decrease in the extent of
+hyperpolarization-triggered sag compared to WT littermates. This
+decrease was observed with both methods for measuring sag, and
+was also seen when the hyperpolarizing current stimulus was
+either 50 or 100 pA (AR and JB, unpublished observations). In
+Tg2576 mice we have also observed a signiﬁcant decrease in sag of
+around 25% at 24 months of age e although whether this is solely
+due to consequences of the change in input resistance that arises
+(see above) is not presently clear. Interestingly in the rTg4510
+transgenic mouse model of tauopathy, we have observed a significant increase in sag in multiple classes of neurone, including CA1PC (Claire Booth, AR and JB, manuscript in preparation).
+4.3. Changes to suprathreshold behaviours
+Although we were unable to detect any changes to basic, subthreshold intrinsic properties in PDAPP mice, signiﬁcant effects of
+genotype became apparent when we used suprathreshold current
+pulses to depolarize CA1-PC beyond action potential threshold. One
+clear observation was that these pyramidal cells ﬁred faster in the
+Ab-overproducing mice. This was apparent at all levels of current
+stimulus, and particularly striking for weaker current injections.
+This is, for the most part, a similar observation to our ﬁndings in
+PSAPP mice, however, in these animals the differences between
+genotypes disappeared with the very strongest depolarizing current stimuli. As we and others have described previously, the ionic
+conductances that produce the fast ADP in hippocampal pyramidal
+cells are particularly important in determining bursty/high frequency ﬁring responses to depolarizing stimuli (Brown and
+Randall, 2009). When we measured the size of this afterpotential
+using our standard approach it was found to be larger (Fig. 5F),
+similar to our observations in PSAPP mice (Brown et al., 2011).
+Overall these ﬁnding indicate that CA1-PC exhibit an intrinsic hyperexcitability, something we have proposed may contribute to the
+regional network hyperexcitability that arises in Ab overproducing
+mice, and may also be a facet of AD in humans (Brown et al., 2011;
+Palop and Mucke, 2009; Verret et al., 2012).
+
+523
+
+We also examined action potential waveforms in PDAPP mice as
+we had found these to be modiﬁed in multiple ways in PSAPP animals. Although we did not ﬁnd any evidence for the changes to
+peak or rate of rise of action potentials comparable to those identiﬁed in PSAPP mice (Brown et al., 2011), we did see a very similar
+degree of spike narrowing in both studies. Indeed the data from the
+two studies are nearly identical. Thus, spike widths at 15 mV of
+around 0.7 ms were seen in WT neurones (0.70  0.01 ms (n ¼ 24,
+PSAPP study) and 0.71  0.01 (n ¼ 71, this study)), whereas spike
+widths were closer to 0.6 ms in the transgenic mice (0.62  0.1
+(n ¼ 21, PSAPP mice) and 0.64  0.1 ms (n ¼ 58, PDAPP mice)). The
+lack of change to action potential height and rate of rise in PDAPP
+mice suggests these animals may not have developed the prominent Naþ channel deﬁcit we identiﬁed in PSAPP mice (Brown et al.,
+2011). It also indicates that the change in spike width seen in both
+studies does not require alterations to spike height or rate of rise to
+develop.
+In unpublished studies from our laboratory we found that the
+signiﬁcantly decreased spike width in 8e9 Mo PSAPP mice persisted at 15 months of age. We have also observed that in 2 year old
+Tg2576 mice a very similar w12% reduction in spike width is seen
+under similar experimental conditions (0.67  0.02 ms (WT, n ¼ 17)
+versus 0.60  0.03 ms (Tg2576, n ¼ 20)), although this change just
+failed to reach statistical signiﬁcance (P < 0.06), probably due to the
+lower statistical power is this study than in our work on cohorts of
+PSAPP and PDAPP. In a different laboratory using quite similar
+methods, a signiﬁcant, age-dependent, decrease in action potential
+width of CA1-PC has also been reported CRND8 mice at a preplaque stage (Wykes et al., 2012). CRND8 is an alternative Aboverproducing mouse line based on a doubly mutated form of APP
+harbouring both the Swedish and Indiana mutations. Thus based on
+three mice lines we have studied and one study performed elsewhere (Wykes et al., 2012), it would seem that a 10e15% narrowing
+of spikes in CA1-PC of Ab overproducing transgenic mice is a
+repeatable ﬁnding across multiple transgenic lines; although
+investigation of an even greater number of Ab-overproducing lines
+would be useful to conﬁrm the generality of this ﬁnding.
+The changes to action potential width may appear modest,
+averaging between 10 and 15%, however, this is sufﬁcient to produce substantial downstream effects on activation of other processes. For example, because of the nature of the gating kinetics of
+voltage-sensitive Ca2þ channels the narrower action potentials in
+PSAPP or PDAPP mice will produce around 40% less Ca2þ entry per
+spike, something we have demonstrated both experimentally with
+patch clamp recording and with mathematical modelling (unpublished observations). In CA1-PC of CRND8 mice a reduced Ca2þ
+entry per spike has also been demonstrated with multiphoton
+imaging in brain slices (Wykes et al., 2012). Given the profound role
+of Ca2þ in multiple key cellular signalling pathways, this change in
+Ca2þ entry per spike could alone lead to multifaceted functional
+consequences of altered action potential width associated with
+amyloidopathy. One potential area very worthy of examination
+would be the gating of presynaptic Ca2þ channels mediating
+neurotransmitter release. Although this would also require understanding if the changes to action potential waveform we and others
+observe at the neuronal cell body also occur along the axonal
+arbour and within the presynaptic bouton.
+It is interesting to speculate that the reduction in action potential width we see in transgenic mice reﬂects a homeostatic
+rebalancing mechanism to counter the intrinsic hyperexcitability
+that generates higher frequency, more bursty ﬁring patterns
+(Fig. 4). Alternatively the converse may be the case, namely that the
+altered ﬁring patterns are a homeostatic response to counteract the
+presence of a narrower action potential. Either way, understanding
+the cellular mechanisms responsible for the presence of narrower
+
+524
+
+T.L. Kerrigan et al. / Neuropharmacology 79 (2014) 515e524
+
+spikes in Ab-overproducing mice will be informative, and may also
+provide novel routes to addressing some of the circuit deﬁcits that
+develop in the face of a persistent amyloidopathy. The most obvious
+source of narrower spikes would be enhanced functional contributions from fast gating potassium channels with roles in action
+potential repolarization. This could occur potentially through an
+increase in cell surface channel density or instead from an alteration to gating biophysics or even permeation properties. In a
+previous study increases in Kv3.1 have been proposed as a candidate mechanism (Wykes et al., 2012). Other mechanisms independent of Kþ channels are also feasible, for example a loss of a
+contribution to the action potential waveform from voltage-gated
+Ca2þ channels or faster Naþ channel inactivation could both
+contribute to a narrowing of action potential waveform.
+In summary this work both adds to, and complements, previous
+studies of intrinsic excitability in transgenic mice that overproduce
+Ab peptides. By employing methods very similar to those used in
+our own previous investigation we have identiﬁed potentially
+common outcomes that may occur in multiple, and perhaps all Aboverproducing mouse lines. In the near future we are embarking on
+similar studies of CA1-PC in 2 additional transgenic mouse lines
+which express a robust amyloidopathy. We feel that only by going
+to these lengths will we discover the most robust and perhaps
+signiﬁcant neurophysiological changes associated with this form of
+pathology.
+
+References
+Brown, J.T., Chin, J., Leiser, S.C., Pangalos, M.N., Randall, A.D., 2011. Altered intrinsic
+neuronal excitability and reduced Naþ currents in a mouse model of Alzheimer’s disease. Neurobiol. Aging 32, 2109.e1e2109.e14.
+Brown, J.T., Randall, A.D., 2009. Activity-dependent depression of the spike afterdepolarization generates long-lasting intrinsic plasticity in hippocampal CA3
+pyramidal neurons. J. Physiol. 587, 1265e1281.
+Brown, J.T., Richardson, J.C., Collingridge, G.L., Randall, A.D., Davies, C.H., 2005.
+Synaptic transmission and synchronous activity is disrupted in hippocampal
+slices taken from aged TAS10 mice. Hippocampus 15, 110e117.
+Chapman, P.F., White, G.L., Jones, M.W., Cooper-Blacketer, D., Marshall, V.J.,
+Irizarry, M., Younkin, L., Good, M.A., Bliss, T.V., Hyman, B.T., Younkin, S.G.,
+Hsiao, K.K., 1999. Impaired synaptic plasticity and learning in aged amyloid
+precursor protein transgenic mice. Nat. Neurosci. 2, 271e276.
+Driver, J.E., Racca, C., Cunningham, M.O., Towers, S.K., Davies, C.H.,
+Whittington, M.A., LeBeau, F.E., 2007. Impairment of hippocampal gammafrequency oscillations in vitro in mice overexpressing human amyloid precursor protein (APP). Eur. J. Neurosci. 26, 1280e1288.
+Fitzjohn, S.M., Doherty, A.J., Collingridge, G.L., 2008. The use of the hippocampal
+slice preparation in the study of Alzheimer’s disease. Eur. J. Pharmacol. 585,
+50e59.
+Games, D., Adams, D., Alessandrini, R., Barbour, R., Berthelette, P., Blackwell, C.,
+Carr, T., Clemens, J., Donaldson, T., Gillespie, F., et al., 1995. Alzheimer-type
+neuropathology in transgenic mice overexpressing V717F beta-amyloid precursor protein. Nature 373, 523e527.
+Hardy, J., 2009. The amyloid hypothesis for Alzheimer’s disease: a critical reappraisal. J. Neurochem. 110, 1129e1134.
+
+Hsia, A.Y., Masliah, E., McConlogue, L., Yu, G.Q., Tatsuno, G., Hu, K., Kholodenko, D.,
+Malenka, R.C., Nicoll, R.A., Mucke, L., 1999. Plaque-independent disruption of
+neural circuits in Alzheimer’s disease mouse models. Proc. Natl. Acad. Sci. U. S.
+A. 96, 3228e3233.
+Jacobsen, J.S., Wu, C.C., Redwine, J.M., Comery, T.A., Arias, R., Bowlby, M.,
+Martone, R., Morrison, J.H., Pangalos, M.N., Reinhart, P.H., Bloom, F.E., 2006.
+Early-onset behavioral and synaptic deﬁcits in a mouse model of Alzheimer’s
+disease. Proc. Natl. Acad. Sci. U. S. A. 103, 5161e5166.
+Jolas, T., Zhang, X.S., Zhang, Q., Wong, G., Del Vecchio, R., Gold, L., Priestley, T., 2002.
+Long-term potentiation is increased in the CA1 area of the hippocampus of
+APP(swe/ind) CRND8 mice. Neurobiol. Dis. 11, 394e409.
+Lalonde, R., Fukuchi, K., Strazielle, C., 2012. APP transgenic mice for modelling
+behavioural and psychological symptoms of dementia (BPSD). Neurosci. Biobehav. Rev. 36, 1357e1375.
+Larson, J., Lynch, G., Games, D., Seubert, P., 1999. Alterations in synaptic transmission and long-term potentiation in hippocampal slices from young and aged
+PDAPP mice. Brain Res. 840, 23e35.
+McGowan, E., Sanders, S., Iwatsubo, T., Takeuchi, A., Saido, T., Zehr, C., Yu, X.,
+Uljon, S., Wang, R., Mann, D., Dickson, D., Duff, K., 1999. Amyloid phenotype
+characterization of transgenic mice overexpressing both mutant amyloid precursor protein and mutant presenilin 1 transgenes. Neurobiol. Dis. 6, 231e244.
+Minkeviciene, R., Rheims, S., Dobszay, M.B., Zilberter, M., Hartikainen, J., Fulop, L.,
+Penke, B., Zilberter, Y., Harkany, T., Pitkanen, A., Tanila, H., 2009. Amyloid betainduced neuronal hyperexcitability triggers progressive epilepsy. J. Neurosci.
+29, 3453e3462.
+Morrissette, D.A., Parachikova, A., Green, K.N., LaFerla, F.M., 2009. Relevance of
+transgenic mouse models to human Alzheimer disease. J. Biol. Chem. 284,
+6033e6037.
+Oddo, S., Caccamo, A., Shepherd, J.D., Murphy, M.P., Golde, T.E., Kayed, R.,
+Metherate, R., Mattson, M.P., Akbari, Y., LaFerla, F.M., 2003. Triple-transgenic
+model of Alzheimer’s disease with plaques and tangles: intracellular Abeta and
+synaptic dysfunction. Neuron 39, 409e421.
+Palop, J.J., Chin, J., Roberson, E.D., Wang, J., Thwin, M.T., Bien-Ly, N., Yoo, J., Ho, K.O.,
+Yu, G.Q., Kreitzer, A., Finkbeiner, S., Noebels, J.L., Mucke, L., 2007. Aberrant
+excitatory neuronal activity and compensatory remodeling of inhibitory hippocampal circuits in mouse models of Alzheimer’s disease. Neuron 55, 697e711.
+Palop, J.J., Mucke, L., 2009. Epilepsy and cognitive impairments in Alzheimer disease. Arch. Neurol. 66, 435e440.
+Randall, A.D., Witton, J., Booth, C., Hynes-Allen, A., Brown, J.T., 2010. The functional
+neurophysiology of the amyloid precursor protein (APP) processing pathway.
+Neuropharmacology 59, 243e267.
+Rocher, A.B., Kinson, M.S., Luebke, J.I., 2008. Signiﬁcant structural but not physiological changes in cortical neurons of 12-month-old Tg2576 mice. Neurobiol.
+Dis. 32, 309e318.
+Roder, S., Danober, L., Pozza, M.F., Lingenhoehl, K., Wiederhold, K.H., Olpe, H.R.,
+2003. Electrophysiological studies on the hippocampus and prefrontal cortex
+assessing the effects of amyloidosis in amyloid precursor protein 23 transgenic
+mice. Neuroscience 120, 705e720.
+Spencer, J.P., Weil, A., Hill, K., Hussain, I., Richardson, J.C., Cusdin, F.S., Chen, Y.H.,
+Randall, A.D., 2006. Transgenic mice over-expressing human beta-amyloid have
+functional nicotinic alpha 7 receptors. Neuroscience 137, 795e805.
+Verret, L., Mann, E.O., Hang, G.B., Barth, A.M., Cobos, I., Ho, K., Devidze, N.,
+Masliah, E., Kreitzer, A.C., Mody, I., Mucke, L., Palop, J.J., 2012. Inhibitory interneuron deﬁcit links altered network activity and cognitive dysfunction in Alzheimer model. Cell 149, 708e721.
+Witton, J., Brown, J.T., Jones, M.W., Randall, A.D., 2010. Altered synaptic plasticity in
+the mossy ﬁbre pathway of transgenic mice expressing mutant amyloid precursor protein. Mol. Brain 3, 32.
+Wykes, R., Kalmbach, A., Eliava, M., Waters, J., 2012. Changes in the physiology of
+CA1 hippocampal pyramidal neurons in preplaque CRND8 mice. Neurobiol.
+Aging 33, 1609e1623.
+Zhang, H., Ma, Q., Zhang, Y.W., Xu, H., 2012. Proteolytic processing of Alzheimer’s
+beta-amyloid precursor protein. J. Neurochem. 120 (Suppl. 1), 9e21.
+
+
