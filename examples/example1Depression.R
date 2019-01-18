@@ -31,7 +31,7 @@ myData <- originalData[1:2,]
 annotationResults <- CountTermsInStudies(searchingData = myData
                                , dictionary = didctionaryName)
 
-annotationOnlyResults <- sapply(annotationResults[, -1], function(x) as.numeric(as.character(x)))
+annotationOnlyResults <- as.data.frame(sapply(annotationResults[, -1], function(x) as.numeric(as.character(x))))
 
 print(colSums(annotationOnlyResults))
 # robRegexFlag <- RiskOfBiasIdentification(myData)
