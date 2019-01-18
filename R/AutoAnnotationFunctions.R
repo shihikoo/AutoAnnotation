@@ -336,28 +336,29 @@ CountPatternInPar <- function(myStudies = NULL
       options(stringsAsFactors = F)
       myStudy <- myStudies[i,,drop=F]
 
-      # Read fulltext. Convert if the link is a pdf link. Return Status and fulltext
-      myStudy[, c(linkStatusHeader, linkFullTextHeader)] <-
-        as.list(t(
-          sapply(
-            myStudy[, linkSearchHeaders],
-            ReadLink,
-            ignoreExistingTextFile = ignoreExistingTextFile
-            ,
-            conversionSoftware = conversionSoftware
-          )
-        ))
-
       myRegex <- myDictionary[, dictionaryRegexHeader]
-      result <- sapply(
-        myRegex,
-        CountPatternOverMatrix,
-        margin = 1,
-        text = myStudy[,!(names(myStudy) %in% c(linkSearchHeaders, linkStatusHeader)), drop=F],
-        ignoreCase = ignoreCase
-      )
-
-      return(c(myStudy[, linkStatusHeader], result))
+      myStudy[, c(linkStatusHeader, linkFullTextHeader)] = ""
+      # Read fulltext. Convert if the link is a pdf link. Return Status and fulltext
+      if(linkSearchHeaders != ""){
+        myStudy[, c(linkStatusHeader, linkFullTextHeader)] <-
+          as.list(t(
+            sapply(
+              myStudy[, linkSearchHeaders],
+              ReadLink,
+              ignoreExistingTextFile = ignoreExistingTextFile
+              ,
+              conversionSoftware = conversionSoftware
+            )
+          ))
+      }
+        result <- sapply(
+          myRegex,
+          CountPatternOverMatrix,
+          margin = 1,
+          text = myStudy[,!(names(myStudy) %in% c(linkSearchHeaders, linkStatusHeader)), drop=F],
+          ignoreCase = ignoreCase
+        )
+          return(c(myStudy[, linkStatusHeader], result))
     }
 
   parallel::stopCluster(cl)
