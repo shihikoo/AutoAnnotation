@@ -5,10 +5,10 @@
 \title{CountPatternInPar}
 \usage{
 CountPatternInPar(myStudies = NULL, myDictionary,
-  textSearchingHeaders = c("Title", "Abstract"),
-  linkSearchHeaders = "PdfRelativePath", dictionaryNameHeader = "Name",
-  dictionaryRegexHeader = "Regex", ignoreCase = TRUE,
-  ignoreExistingTextFile = TRUE, conversionSoftware = "pdftotext")
+  textSearchingHeaders = "", linkSearchHeaders = "",
+  dictionaryNameHeader = "Name", dictionaryRegexHeader = "Regex",
+  ignoreCase = TRUE, ignoreExistingTextFile = TRUE,
+  conversionSoftware = "pdftotext")
 }
 \arguments{
 \item{myStudies}{myStudies}

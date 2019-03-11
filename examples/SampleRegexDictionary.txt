@@ -1,0 +1,4 @@
+"Name"	"RegexFileName"	"Regex"
+"The"	""	"[Tt]he"
+"We"	""	"[Ww]e"
+"Animal"	""	"[A]nimal"

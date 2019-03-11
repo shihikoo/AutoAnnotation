@@ -69,6 +69,7 @@ ExtractColumns <- function(df, columnNames) {
   if (!class(columnNames) == 'character' &
       !class(columnNames[1]) == 'character')
     return(NULL)
+
   if (sum(columnNames %in% names(df)) >= 1)
   {
     newDf <- df[columnNames[columnNames %in% names(df)]]
@@ -391,9 +392,9 @@ CountPatternInPar <- function(myStudies = NULL
 #'
 #' @export
 #'
-CountTermsInStudies <- function(searchingData = NULL
+CountTermsInStudies <- function(searchingData
                                 ,
-                                dictionary = NULL
+                                dictionary
                                 ,
                                 textSearchingHeaders = ""
                                 ,
@@ -412,8 +413,10 @@ CountTermsInStudies <- function(searchingData = NULL
   myStudies <-
     ExtractColumns(GetData(searchingData),
                    c(textSearchingHeaders, linkSearchHeaders))
-  if (is.null(myStudies))
+  if (is.null(myStudies)){
+    print("No valid data is selected. Please check the data,textSearchingHeaders, and/or linkSearchHeaders. ")
     return(NULL)
+  }
 
   #Read in the dictionary.
   myDictionary <-

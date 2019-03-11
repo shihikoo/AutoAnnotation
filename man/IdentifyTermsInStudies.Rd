@@ -5,10 +5,10 @@
 \title{IdentifyTermsInStudies}
 \usage{
 IdentifyTermsInStudies(searchingData = NULL, dictionary = NULL,
-  textSearchingHeaders = c("Title", "Abstract"),
-  linkSearchHeaders = c("PdfRelativePath"), dictionaryNameHeader = "Name",
-  dictionaryRegexHeader = "Regex", ignoreCase = TRUE,
-  ignoreExistingTextFile = TRUE, conversionSoftware = "pdftotext")
+  textSearchingHeaders = "", linkSearchHeaders = "",
+  dictionaryNameHeader = "Name", dictionaryRegexHeader = "Regex",
+  ignoreCase = TRUE, ignoreExistingTextFile = TRUE,
+  conversionSoftware = "pdftotext")
 }
 \arguments{
 \item{searchingData}{Either a dataset or a link to the dataset to search from}
@@ -17,9 +17,9 @@ IdentifyTermsInStudies(searchingData = NULL, dictionary = NULL,
 It should consist two columns: name of the term and search string of the term. Regular expression (Perl) is accepted for the search string.
 If there is only one column, that column will be used both as name and regular expression.}
 
-\item{textSearchingHeaders}{A list of the headers of the columns to search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+\item{textSearchingHeaders}{A list of the headers of the columns to search from. A list of character. Default value is empty string}
 
-\item{linkSearchHeaders}{A list of the headers of the columns to read and search from. A list of character. Default value is c('Title', 'Abstract', 'FullText')}
+\item{linkSearchHeaders}{A list of the headers of the columns to read and search from. A list of character. Default value is empty string}
 
 \item{dictionaryNameHeader}{The header string of name column in dictionary}
 
