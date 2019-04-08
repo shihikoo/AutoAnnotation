@@ -16,14 +16,16 @@ dir.create(outputFolder, showWarnings = F)
 dataFileName <- "example2pdfLink.csv"
 didctionaryName <- 'examples/SampleRegexDictionary.txt'
 
-#-------- Read full information from the file ----------
-originalData <- read.csv(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
-myData <- originalData
+#-------- Method1: Read in full information from the file, process and feed in ----------
+# originalData <- read.delim(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
+# myData <- originalData
+# annotationResults <- CountTermsInStudies(searchingData = myData
+#                                          , dictionary = didctionaryName
+#                                          , textSearchingHeaders <- c("Title","Abstract"))
 
-#---- Edits for data ----
-
-# -------- Count the terms in the pdf in the dictionary  ------------
-annotationResults <- CountTermsInStudies(searchingData = myData
+# -------- Method2: Directly feed in the file -----
+# --- Counter the terms in the dictionary
+annotationResults <- CountTermsInStudies(searchingData = paste0(datafolder, dataFileName)
                                , dictionary = didctionaryName
                                , linkSearchHeaders = "PdfRelativePath")
 

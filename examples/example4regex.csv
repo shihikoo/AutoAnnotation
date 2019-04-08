@@ -1,0 +1,55 @@
+Name,Regex
+AP5,AP5|APV|2[-]amino[-]5[-]phosphonopentanoic acid
+AP7,AP[-]7|2[-]amino[-]7[-]phosphonoheptanoic acid
+CPPene,CPPene|Midafotel|SDZ EAA 494
+Selfotel,Selfotel|CGS[-]19755
+Minocycline,Minocycline|Minocin|Minomycin|Akamin
+Amantadine,Amantadine|Symmetrel|1[-]Adamantylamine
+Atomoxetine,Atomoxetine|Strattera
+Lanicemine,Lanicemine|AZD6765
+Agmatine,Agmatine
+Chloroform,Chloroform|trichloromethaneMethane trichloride|Methyl trichloride|Methenyl trichloride|TCM|Freon 20|Refrigerant20|R[-]20|UN 1888
+Dextrallorphan,Dextrallorphan|\bDXA\b
+Dextromethorphan,Dextromethorphan|DXM|DMRobitussin|Delsym|DexAlone|Duract
+Dextrorphan,Dextrorphan|\bDXO\b
+Diphenidine,Diphenidine|2[-]DEP|DPD|\bDND\b
+Dizocilpine,Dizocilpine|MK[-]801
+Ethanol,Ethanol
+Eticyclidine,Eticyclidine|PCE|CI[-]400
+Gacylidine,Gacyclidine|GK[-]11
+Ketamine,Ketamine|Ketalar|CI[-]581|CL[-]369|CM[-]52372[-]2
+Magnesium,Magnesium|\bMg\b
+Memantine,Memantine|Axura|Ebixa|Namenda
+Methoxetamine,Methoxetamine|MXE
+Nitromemantine,Nitromemantine|YQW[-]36
+Nitrous oxide,Nitrous oxide|N_O|dinitrogen monoxide
+PD137889,PD[-]137889|N[-]methylhexahydrofluorenamine
+Phencyclidine,Phencyclidine|\bPCP\b|Sernyl|Sernylan|Phenylcyclohexyl piperidine
+Rolicyclidine,Rolicyclidine|\bPCPy\b
+Tenocyclidine,Tenocyclidine|\bTCP\b
+Methoxydine,Methoxydine|4[-]Methoxyphencyclidine|4[-]MeO[-]PCP
+Tiletamine,Tiletamine
+Neramexane,Neramexane
+Eliprodil,Epiprodil|SL[-]82.0715
+Etoxadrol,Etoxadrol|CL[-]1848C
+Dexoxadrol,Dexoxadrol|Dioxadrol
+WMS2539,WMS[-]2539
+NEFA,NEFA
+Remacemide,Remacemide
+Delucemine,Delucemine|NPS[-]1506
+8APDHQ,8A[-]PDHQ|8a[-]Phenyldecahydroquinoline
+Aptiganel,Aptiganel|Cerestat|CNS[-]1102
+Dexanabinol,Dexanabinol|HU[-]211|ETS2101
+Huperzine A,Huperzine A|\bHupA\b
+Ibogaine,Ibogaine
+Rhynchophylline,Rhyncophylline|Mitrinermin|Mitrinermine|Rhynchophyllin|Rhynocophylline
+Gabapentin,Gabapentin|Neurontin|CI[-]945|GOE[-]3450|DM[-]1796
+Rapastinel,Rapastinel|GLYX[-]13|BV[-]102
+Apimostinel,Apimostinel|NRX[-]1074|AGN[-]241660
+7Chlorokynurenic acid,7[-]Chlorokynurenic acid|7[-]chlorokynurenate|7[-]CTKA
+4Chlorokynurenine,4[-]Chlorokynurenine
+57dichlorohynurenic acid,57[-]Dichlorokynurenic acid|DCKA
+Kynurenic acid,Kynurenic acid|KYNA|KYN|Kinurenic acid|kynuronic acid|quinurenic acid|transtorine
+1Aminocyclopropane-1-carboxylic acid,1[-]Aminocyclopropane[-]1[-]carboxylic acid|\bACC\b|1[-]Aminocyclopropanecarboxylic acid
+Phenylalanine,Phenylalanine|L[-]Phenylalanine
+Xenon,Xenon|\bXe\b

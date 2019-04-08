@@ -217,7 +217,10 @@ ReadLink <-
                          ,
                          conversionSoftware = conversionSoftware)
       textLink <-
-        ifelse(grepl('OK', linkStatus), gsub('pdf', 'txt', link), '')
+        ifelse(grepl('OK', linkStatus),
+               stri_replace_last_fixed(link, '.pdf', '.txt'),''
+        )
+               # gsub('pdf', 'txt', link), ''
     }
     else {
       if (link == "")
