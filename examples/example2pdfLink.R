@@ -17,7 +17,7 @@ dataFileName <- "example2pdfLink.csv"
 didctionaryName <- 'examples/SampleRegexDictionary.txt'
 
 #-------- Method1: Read in full information from the file, process and feed in ----------
-# originalData <- read.delim(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
+originalData <- read.delim(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
 # myData <- originalData
 # annotationResults <- CountTermsInStudies(searchingData = myData
 #                                          , dictionary = didctionaryName
@@ -34,6 +34,6 @@ annotationOnlyResults <- as.data.frame(lapply(annotationResults[, -1],function(x
 print(colSums(annotationOnlyResults))
 
 # -------- write output data -----------
-outputData <- cbind(myData, annotationResults)
+outputData <- cbind(originalData, annotationResults)
 
 write.table(outputData, paste(outputFolder,  runTimestamp, "DataAnnotated.txt", sep=""), quote = F, sep = "\t")

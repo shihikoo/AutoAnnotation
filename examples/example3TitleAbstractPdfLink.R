@@ -1,7 +1,7 @@
 #-----load library
 # install.packages("githubinstall")
 # library(githubinstall)
-# githubinstall("AutoAnnotation")
+# githubinstall("shihikoo/AutoAnnotation")
 library(AutoAnnotation)
 # source("R/AutoAnnotationFunctions.R")
 
@@ -17,7 +17,7 @@ dataFileName <- "example2pdfLink.csv"
 didctionaryName <- 'examples/SampleRegexDictionary.txt'
 
 #-------- Method1: Read in full information from the file, process and feed in ----------
-originalData <- read.delim(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
+originalData <- read.csv(paste0(datafolder, dataFileName),row.names = NULL, stringsAsFactors = F)
 myData <- originalData
 annotationResults <- CountTermsInStudies(searchingData = myData
                                          , dictionary = didctionaryName
