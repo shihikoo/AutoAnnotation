@@ -11,9 +11,9 @@ install_github("shihikoo/AutoAnnotation")
 ```
 
 ## Pdf to text software 
-Code calls 'pdftotext' to convert pdf to text. We included
+Code calls 'pdftotext' to convert pdf to text.
 
-One may download pdftotext at https://ctan.org/pkg/xpdf?lang=en
+One may download the Xpdf command line tools at http://www.xpdfreader.com/download.html
 And add the software path to parameter 'conversionSoftware'.
 
 ## Stage
