@@ -336,13 +336,14 @@ ExtractPattern <-
 
         matchpattern <- paste0(".{80}",pattern,".{80}")
         string <- stringr::str_extract_all(text, stringr::regex(matchpattern, ignore_case=T))
-      }
+        return (paste0("", string))
+        }
       else {
 
         matchpattern <- paste(".{80}",pattern,".{80}")
         string <- stringr::str_extract_all(text, stringr::regex(matchpattern))
+        return (paste0("", string))
       }
-      return (paste0("", string))
     }
 
     return(apply(
