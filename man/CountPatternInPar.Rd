@@ -4,11 +4,20 @@
 \alias{CountPatternInPar}
 \title{CountPatternInPar}
 \usage{
-CountPatternInPar(myStudies = NULL, myDictionary,
-  textSearchingHeaders = "", linkSearchHeaders = "",
-  dictionaryNameHeader = "Name", dictionaryRegexHeader = "Regex",
-  ignoreCase = TRUE, ignoreExistingTextFile = TRUE,
-  conversionSoftware = "pdftotext")
+CountPatternInPar(
+  myStudies = NULL,
+  myDictionary,
+  textSearchingHeaders = "",
+  linkSearchHeaders = "",
+  dictionaryNameHeader = "Name",
+  dictionaryRegexHeader = "Regex",
+  ignoreCase = TRUE,
+  ignoreExistingTextFile = TRUE,
+  cutIntro = FALSE,
+  cutRefs = FALSE,
+  extractStrings = FALSE,
+  conversionSoftware = "pdftotext"
+)
 }
 \arguments{
 \item{myStudies}{myStudies}
@@ -23,9 +32,11 @@ CountPatternInPar(myStudies = NULL, myDictionary,
 
 \item{dictionaryRegexHeader}{dictionaryRegexHeader}
 
-\item{ignoreCase}{ignoreCase}
+\item{ignoreCase}{boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not}
 
 \item{ignoreExistingTextFile}{ignoreExistingTextFile}
+
+\item{extractStrings}{= boolean variable to indicate whether matching strings from full text should be extracted}
 
 \item{conversionSoftware}{Software used to covert pdf to text. Default value is 'pdftotext'}
 }

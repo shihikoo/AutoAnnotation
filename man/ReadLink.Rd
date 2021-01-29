@@ -4,10 +4,20 @@
 \alias{ReadLink}
 \title{ReadLink}
 \usage{
-ReadLink(link, ignoreExistingTextFile = FALSE, conversionSoftware = "")
+ReadLink(
+  link,
+  cutIntro = FALSE,
+  cutRefs = FALSE,
+  ignoreExistingTextFile = FALSE,
+  conversionSoftware = ""
+)
 }
 \arguments{
 \item{link}{read full text from link}
+
+\item{cutIntro}{boolean varible to indicate whether introduction/background should be removed from pdfs}
+
+\item{cutRefs}{boolean varible to indicate whether reference section should be removed from pdfs}
 
 \item{ignoreExistingTextFile}{boolean varible to indicate whether a pdf should be converted
 if there is already text file with its file name.}
