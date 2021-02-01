@@ -4,8 +4,7 @@
 \alias{ValidateDictionary}
 \title{ValidateDictionary}
 \usage{
-ValidateDictionary(myDictionary, dictionaryNameHeader,
-  dictionaryRegexHeader)
+ValidateDictionary(myDictionary, dictionaryNameHeader, dictionaryRegexHeader)
 }
 \arguments{
 \item{myDictionary}{my Dictionary}

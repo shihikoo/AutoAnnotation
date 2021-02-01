@@ -4,10 +4,20 @@
 \alias{CountTermsInStudies}
 \title{CountTermsInStudies}
 \usage{
-CountTermsInStudies(searchingData, dictionary, textSearchingHeaders = "",
-  linkSearchHeaders = "", dictionaryNameHeader = "Name",
-  dictionaryRegexHeader = "Regex", ignoreCase = TRUE,
-  ignoreExistingTextFile = TRUE, conversionSoftware = "pdftotext")
+CountTermsInStudies(
+  searchingData,
+  dictionary,
+  textSearchingHeaders = "",
+  linkSearchHeaders = "",
+  dictionaryNameHeader = "Name",
+  dictionaryRegexHeader = "Regex",
+  ignoreCase = TRUE,
+  ignoreExistingTextFile = TRUE,
+  cutIntro = FALSE,
+  cutRefs = FALSE,
+  extractStrings = FALSE,
+  conversionSoftware = "pdftotext"
+)
 }
 \arguments{
 \item{searchingData}{Either a dataset or a link to the dataset to search from}
@@ -27,6 +37,12 @@ If there is only one column, that column will be used both as name and regular e
 \item{ignoreCase}{boolean to decide whether to ignore the case in searching the content in dictionary in the searchingData or not. Default value is TRUE.}
 
 \item{ignoreExistingTextFile}{ignoreExistingTextFile}
+
+\item{cutIntro}{boolean varible to indicate whether introduction/background should be removed from pdfs}
+
+\item{cutRefs}{boolean varible to indicate whether reference section should be removed from pdfs}
+
+\item{extractStrings}{= boolean variable to indicate whether matching strings from full text should be extracted}
 
 \item{conversionSoftware}{Software used to covert pdf to text. Default value is 'pdftotext'}
 }
