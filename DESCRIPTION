@@ -6,7 +6,7 @@ Author: J Liao
 Maintainer: J Liao <shihikoo@gmail.com>
 Description: Mark the occurence frequency of the annotations within a list of records with multiple fields (including text and pdf links).
 License: Creative Commons license
-Imports: tools, foreach, doParallel, parallel, utils, roxygen2
+Imports: tools, foreach, doParallel, parallel, utils, roxygen2,stringi
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
