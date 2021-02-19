@@ -36,6 +36,10 @@ CountPatternInPar(
 
 \item{ignoreExistingTextFile}{ignoreExistingTextFile}
 
+\item{cutIntro}{a boolean, whehter to cut introduction}
+
+\item{cutRefs}{a boolean, wether to cut the reference or not}
+
 \item{extractStrings}{= boolean variable to indicate whether matching strings from full text should be extracted}
 
 \item{conversionSoftware}{Software used to covert pdf to text. Default value is 'pdftotext'}

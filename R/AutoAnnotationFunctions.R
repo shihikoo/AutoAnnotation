@@ -369,6 +369,8 @@ ExtractPattern <-
 #' @param ignoreExistingTextFile ignoreExistingTextFile
 #' @param extractStrings = boolean variable to indicate whether matching strings from full text should be extracted
 #' @param conversionSoftware Software used to covert pdf to text. Default value is 'pdftotext'
+#' @param cutRefs a boolean, wether to cut the reference or not
+#' @param cutIntro a boolean, whehter to cut introduction
 #'
 #' @return frequency
 #'

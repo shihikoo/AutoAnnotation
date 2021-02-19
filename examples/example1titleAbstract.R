@@ -1,7 +1,7 @@
 #-----load library
-# install.packages("githubinstall")
-# library(githubinstall)
-# githubinstall("AutoAnnotation")
+install.packages("githubinstall")
+library(githubinstall)
+githubinstall("AutoAnnotation")
 library(AutoAnnotation)
 # source("R/AutoAnnotationFunctions.R")
 

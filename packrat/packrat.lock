@@ -60,6 +60,12 @@ Version: 1.17.1
 Hash: 97cb6f6293cd18d17df77a6383cc6763
 Requires: bitops
 
+Package: callr
+Source: CRAN
+Version: 3.1.1
+Hash: 461cdebafe2c1cfc23ddc37527633185
+Requires: R6, processx
+
 Package: cli
 Source: CRAN
 Version: 1.0.1
@@ -88,8 +94,8 @@ Hash: ed54dbec3394d9a8e8fd3c02d94380a5
 
 Package: desc
 Source: CRAN
-Version: 1.1.1
-Hash: 2f99e95211c4ba6efcf5538d096587fc
+Version: 1.2.0
+Hash: a1fd2baa29d4954951e3d1816deab6af
 Requires: R6, assertthat, crayon, rprojroot
 
 Package: devtools
@@ -106,8 +112,8 @@ Hash: e53fb8c58673df868183697e39a6a4d6
 
 Package: doParallel
 Source: CRAN
-Version: 1.0.14
-Hash: 7e564b9d723d8648b18457baba2a1383
+Version: 1.0.15
+Hash: 2d8e07c1201447e22a46552ed6664f08
 Requires: foreach, iterators
 
 Package: dplyr
@@ -130,8 +136,8 @@ Hash: f147621f72b561485bfffcae78c4f5d5
 
 Package: foreach
 Source: CRAN
-Version: 1.4.4
-Hash: 4df5ab2c8c35382dacab75d414da6748
+Version: 1.4.7
+Hash: f13142a2c7cd964900c6711dfd85c224
 Requires: iterators
 
 Package: formatR
@@ -186,8 +192,8 @@ Requires: R6, curl, jsonlite, mime, openssl
 
 Package: iterators
 Source: CRAN
-Version: 1.0.10
-Hash: 9f8af91e4a3487a282d7dea67513e519
+Version: 1.0.12
+Hash: f0b9003c5ffc99a96b9f21079c1715a5
 
 Package: jsonlite
 Source: CRAN
@@ -256,10 +262,22 @@ Version: 1.3.1
 Hash: 9ed4c2a5d3047bfba3e852ad5e806d91
 Requires: cli, crayon, fansi, rlang, utf8
 
+Package: pkgbuild
+Source: CRAN
+Version: 1.0.2
+Hash: 63d38eff6b5a7fce20d0f24851ab4b0a
+Requires: R6, callr, cli, crayon, desc, prettyunits, rprojroot, withr
+
 Package: pkgconfig
 Source: CRAN
 Version: 2.0.2
 Hash: b0fd6ed908e150b77e5f00c6478bd58c
+
+Package: pkgload
+Source: CRAN
+Version: 1.0.2
+Hash: 41eb2db35be61f6f9e8864cf87a1ecb0
+Requires: desc, pkgbuild, rlang, rprojroot, rstudioapi, withr
 
 Package: plogr
 Source: CRAN
@@ -271,11 +289,28 @@ Source: CRAN
 Version: 1.0.0
 Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
 
+Package: prettyunits
+Source: CRAN
+Version: 1.0.2
+Hash: 49286102a855640daaa38eafe8b1ec30
+Requires: assertthat, magrittr
+
+Package: processx
+Source: CRAN
+Version: 3.3.0
+Hash: 89c6047da2d7dfad11bedd624252d78a
+Requires: R6, ps
+
 Package: promises
 Source: CRAN
 Version: 1.0.1
 Hash: 5d0e1b693c96f6a7dc6e14f1fb610780
 Requires: R6, Rcpp, later, magrittr, rlang
+
+Package: ps
+Source: CRAN
+Version: 1.3.0
+Hash: 1d4cae95887ffe5b1a22bea5994476cd
 
 Package: purrr
 Source: CRAN
@@ -297,10 +332,10 @@ Requires: base64enc, caTools, evaluate, htmltools, jsonlite, knitr,
 
 Package: roxygen2
 Source: CRAN
-Version: 6.0.1
-Hash: 408185ee1529c5334da8cd2c21ac8ca0
-Requires: R6, Rcpp, brew, commonmark, desc, digest, stringi, stringr,
-    xml2
+Version: 6.1.1
+Hash: 8d50e18cdfe6805761db35b027b254eb
+Requires: R6, Rcpp, brew, commonmark, desc, digest, pkgload, purrr,
+    stringi, stringr, xml2
 
 Package: rprojroot
 Source: CRAN
@@ -327,8 +362,8 @@ Hash: d093478ac90064e670cd4bf1a99b47b6
 
 Package: stringi
 Source: CRAN
-Version: 1.1.5
-Hash: b6308e49357a0b475f433599e0d8b5eb
+Version: 1.4.3
+Hash: ed2a82fc7cc668c1345223d938cdfaf2
 
 Package: stringr
 Source: CRAN
@@ -366,8 +401,8 @@ Hash: 803d662762e532705c2c066a82d066e7
 
 Package: withr
 Source: CRAN
-Version: 2.0.0
-Hash: cc7e555b8e249aa5cf391592fcae71a2
+Version: 2.1.2
+Hash: d534108bcd5f34ec73e9eb523751ba20
 
 Package: xml2
 Source: CRAN
