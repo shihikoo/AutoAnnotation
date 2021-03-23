@@ -6,8 +6,7 @@ This is a R package for automatical data annotation with terms in a dictionary. 
 
 ```{r}
 install.packages("devtools")
-library(devtools)
-install_github("shihikoo/AutoAnnotation")
+devtools::install_github("shihikoo/AutoAnnotation")
 ```
 
 ## Pdf to text software 

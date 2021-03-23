@@ -14,8 +14,7 @@
 #'
 GetData <- function(myData) {
   tryCatch({
-    if (class(myData) == 'matrix' |
-        class(myData) == 'data.frame' |
+    if (class(myData) == 'matrix' | class(myData) == 'data.frame' | class(myData) == 'tibble' |
         class(myData) == 'list' | class(myData) == 'array') {
       df = as.data.frame(myData)
     } else if (class(myData) == 'character') {
@@ -25,12 +24,6 @@ GetData <- function(myData) {
         df <- utils::read.delim(myData, stringsAsFactors = F)
       else if (fileExtension == 'csv')
         df <- utils::read.csv(myData, stringsAsFactors = F)
-      # else if(fileExtension == 'xlsx' | fileExtension == 'xls')
-      #   {
-      #   df <- read.xlsx(myData, 1)
-      #
-      #   return(df)
-      # }
       else
       {
         print(paste0(myData, "File type not recognized. "))
