@@ -14,8 +14,7 @@
 #'
 GetData <- function(myData) {
   tryCatch({
-    if (class(myData) == 'matrix' | class(myData) == 'data.frame' | class(myData) == 'tibble' |
-        class(myData) == 'list' | class(myData) == 'array') {
+    if (class(myData) == 'matrix' | class(myData) == 'data.frame' | class(myData) == 'tibble' | class(myData) == 'list' | class(myData) == 'array') {
       df = as.data.frame(myData)
     } else if (class(myData) == 'character') {
       fileExtension <- tools::file_ext(myData)
