@@ -1,8 +1,8 @@
 #-----load library
-install.packages("githubinstall")
-library(githubinstall)
-githubinstall("AutoAnnotation")
-library(AutoAnnotation)
+# install.packages("githubinstall")
+# library(githubinstall)
+# githubinstall("AutoAnnotation")
+# library(AutoAnnotation)
 # source("R/AutoAnnotationFunctions.R")
 
 #-------- Set up file folders, different for different projects ----------
